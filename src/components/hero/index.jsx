@@ -3,7 +3,7 @@ import longArrow from '../../assets/icons/Arrow Icon.svg'
 
 const Hero = () => {
   return (
-    <div className="bg-darkBlue text-white absolute top-0 w-full font-space-grotesk px-5">
+    <div className="bg-darkBlue text-white w-full font-space-grotesk px-5">
       <div className="container mx-auto min-h-screen flex justify-center">
         <div className="flex justify-center items-center">
           <div className="flex flex-col items-center gap-10">
