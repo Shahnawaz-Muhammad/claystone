@@ -1,10 +1,14 @@
 import './App.css';
+import Hero from './components/hero';
+import Navbar from './components/navbar';
 
 function App() {
+
   return (
-    <div className="App">
-      <h1 className='bg-green-400'>hello react</h1>
-    </div>
+    <>
+    <Navbar />
+   <Hero />
+    </>
   );
 }
 
