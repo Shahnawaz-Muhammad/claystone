@@ -1,10 +1,9 @@
 import './App.css';
+import WhyChooseUs from './components/whyChooseUs';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='bg-gradient-to-r from-gradientStart to-gradientEnd' >hello react</h1>
-    </div>
+    <WhyChooseUs />
   );
 }
 
