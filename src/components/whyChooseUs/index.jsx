@@ -31,8 +31,8 @@ const WhyChooseUs = () => {
     },
   ];
   return (
-    <div className="bg-darkBlue text-white">
-      <div className="grid gap-[50px] lg:gap-[80px]">
+    <div className="bg-darkBlue text-white pb-[200px]">
+      <div className="grid gap-[50px] lg:gap-[80px] w-[90%] lg:w-[95%] xl:w-[86%] mx-auto ">
         <h3 className="text-[50px] sm:text-[60px] md:text-[80px] lg:text-[100px] text-[#D9D9D9] leading-[60px] sm:leading-[70px] md:leading-[90px] lg:leading-[110px] font-bold ">
           Why <br />
           Choose Us?
@@ -44,7 +44,9 @@ const WhyChooseUs = () => {
               <h6 className="text-[32px] leading-10 text font-semibold pt-16">
                 {data.feature}
               </h6>
-              <p className="text-[20] leading-[30px]">{data.description}</p>
+              <p className="text-[20] leading-[30px] pt-4">
+                {data.description}
+              </p>
             </div>
           ))}
         </div>

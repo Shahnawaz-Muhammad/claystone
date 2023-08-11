@@ -7,9 +7,8 @@ function App() {
   return (
     <>
       <Navbar />
-      <Hero /> 
-      <WhyChooseUs />
       <Hero />
+      <WhyChooseUs />
     </>
   );
 }
