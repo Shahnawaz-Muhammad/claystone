@@ -1,13 +1,25 @@
 import "./App.css";
+import WhyChooseUs from "./components/whyChooseUs";
 import Hero from "./components/hero";
 import Navbar from "./components/navbar";
-import Services from "./components/services"
+import ClientsStories from "./components/clients-stories";
+import Projects from "./components/projects";
+import AskQuestions from "./components/qna";
+import Services from ".components/services"
+
+import Ourwork from "./components/our-work"
 function App() {
   return (
     <>
-    <Services></Services>
-      {/* <Navbar />
-      <Hero /> */}
+      <Navbar />
+      <Hero />
+      <WhyChooseUs />
+      <Services />
+      <Ourwork />
+      <ClientsStories />
+      <Projects />
+      <AskQuestions />
+
     </>
   );
 }
