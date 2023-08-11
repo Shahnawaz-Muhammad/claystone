@@ -14,7 +14,7 @@ module.exports = {
     },
     fontFamily: {
       "space-grotesk": ["Space Grotesk", "sans-serif"],
-      poppins: ["Poppins", "sans-serif"],
+      "poppins": ["Poppins", "sans-serif"],
     },
   },
   plugins: [],
