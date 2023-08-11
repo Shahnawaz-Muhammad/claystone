@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.blurred-text {
+  transition: filter 3s ease-in-out;
+}
