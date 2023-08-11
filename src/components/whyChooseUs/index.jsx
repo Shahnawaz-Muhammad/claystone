@@ -31,9 +31,9 @@ const WhyChooseUs = () => {
     },
   ];
   return (
-    <div className="container mx-auto">
+    <div className="bg-darkBlue text-white">
       <div className="grid gap-[50px] lg:gap-[80px]">
-        <h3 className="text-[50px] sm:text-[60px] md:text-[80px] lg:text-[100px] text-[#D9D9D9] leading-[60px] sm:leading-[70px] md:leading-[90px] lg:leading-[110px] font-bold w-[562px]">
+        <h3 className="text-[50px] sm:text-[60px] md:text-[80px] lg:text-[100px] text-[#D9D9D9] leading-[60px] sm:leading-[70px] md:leading-[90px] lg:leading-[110px] font-bold ">
           Why <br />
           Choose Us?
         </h3>
