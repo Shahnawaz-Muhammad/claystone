@@ -7,15 +7,18 @@ import ClientsStories from "./components/clients-stories";
 import Projects from "./components/projects";
 import AskQuestions from "./components/qna";
 
+import Ourwork from "./components/our-work"
 function App() {
   return (
     <>
       <Navbar />
       <Hero />
       <WhyChooseUs />
+      <Ourwork />
       <ClientsStories />
       <Projects />
       <AskQuestions />
+
     </>
   );
 }
