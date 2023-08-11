@@ -5,16 +5,17 @@ import Navbar from "./components/navbar";
 import ClientsStories from "./components/clients-stories";
 import Projects from "./components/projects";
 import AskQuestions from "./components/qna";
-import Services from ".components/services"
+
 
 import Ourwork from "./components/our-work"
+import Services from "./components/services";
 function App() {
   return (
     <>
       <Navbar />
       <Hero />
       <WhyChooseUs />
-      <Services />
+    <Services />
       <Ourwork />
       <ClientsStories />
       <Projects />

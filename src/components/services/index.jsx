@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import arrowicon from "../../assets/icons/Arrow Icon.png";
 import cyberpic from "../../assets/cyber.jpg"
-const Index = () => {
+const Services = () => {
   const arr = [
     { id: 1, services: "Web Development", content: "Our cyber security service provides advanced protection for your data and systems against potential threats and attacks, ensuring your business operates securely and efficiently." },
     { id: 2, services: "Mobile Development", content: "Our cyber security service provides advanced protection for your data and systems against potential threats and attacks, ensuring your business operates securely and efficiently." },
@@ -67,4 +67,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Services;
