@@ -1,4 +1,4 @@
-import { CgArrowLongRight } from "react-icons/cg";
+import Button from "../button";
 
 const Blog = () => {
   const blogData = [
@@ -78,13 +78,7 @@ const Blog = () => {
           </div>
 
           <div className="flex justify-center">
-            <button
-              type="button"
-              class="text-[16px] text-darkBlue hover:text-white hover:bg-darkBlue leading-[26px] uppercase border border-darkBlue flex items-center justify-center gap-[18px] rounded-[15px] text-center md:w-[367px] px-5 md:px-0 h-[80px]"
-            >
-              read more button
-              <CgArrowLongRight />
-            </button>
+            <Button text="read more button" width="w-[367px]" hoverEffects="hover:text-white hover:bg-darkBlue" textColor="text-darkBlue" border="border border-darkBlue" />
           </div>
         </div>
       </div>

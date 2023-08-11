@@ -19,7 +19,7 @@ const Navbar = () => {
             alt="none"
           ></img>
         </div>
-        <div className=" items-center gap-6 lg:gap-14 xl:gap-16 hidden md:flex">
+        <div className="items-center gap-6 lg:gap-14 xl:gap-16 hidden md:flex">
           {arr.map((data) => {
             return (
               <div className="text-white text-base" key={data.id}>
@@ -28,7 +28,7 @@ const Navbar = () => {
             );
           })}
         </div>
-        <div className=" border-2 flex items-center">
+        <div className="border-2 flex items-center">
           <button className="text-white border-[1px] text-base border-white rounded-[5px] h-[48px] w-[100px]">
             SIGN IN
           </button>
