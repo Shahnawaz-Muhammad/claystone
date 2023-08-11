@@ -1,3 +1,5 @@
+import { CgArrowLongRight } from "react-icons/cg";
+
 const Blog = () => {
   const blogData = [
     {
@@ -36,7 +38,7 @@ const Blog = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px]">
             {blogData.map((data, index) => (
               <div key={index}>
                 {data.unique ? (
@@ -73,6 +75,16 @@ const Blog = () => {
                 )}
               </div>
             ))}
+          </div>
+
+          <div className="flex justify-center">
+            <button
+              type="button"
+              class="text-[16px] text-darkBlue hover:text-white hover:bg-darkBlue leading-[26px] uppercase border border-darkBlue flex items-center justify-center gap-[18px] rounded-[15px] text-center md:w-[367px] px-5 md:px-0 h-[80px]"
+            >
+              read more button
+              <CgArrowLongRight />
+            </button>
           </div>
         </div>
       </div>
