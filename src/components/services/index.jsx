@@ -4,7 +4,7 @@ import shortArrowIcon from "../../assets/icons/Arrow Icon short.png";
 import cyberpic from "../../assets/cyber.jpg"
 const Services = () => {
   const arr = [
-    { id: 1, services: "Web Development", content: "Our cyber security service provides advanced protection for your data and systems against potential threats and attacks, ensuring your business operates securely and efficiently." },
+    { id: 1, services: "Web Development", content: "service provides advanced protection for your data and systems against potential threats and attacks, ensuring your business operates securely and efficiently." },
     { id: 2, services: "Mobile Development", content: "Our cyber security service provides advanced protection for your data and systems against potential threats and attacks, ensuring your business operates securely and efficiently." },
     { id: 3, services: "Cyber Security", content: "Our cyber security service provides advanced protection for your data and systems against potential threats and attacks, ensuring your business operates securely and efficiently." },
     { id: 4, services: "Digital Marketing", content: "Our cyber security service provides advanced protection for your data and systems against potential threats and attacks, ensuring your business operates securely and efficiently." },
