@@ -1,4 +1,5 @@
 import Button from "../button";
+import blueArrowIcon from "../../assets/icons/blue-arrow-icon.png";
 
 const Blog = () => {
   const blogData = [
@@ -78,7 +79,13 @@ const Blog = () => {
           </div>
 
           <div className="flex justify-center">
-            <Button text="read more button" width="w-[367px]" hoverEffects="hover:text-white hover:bg-darkBlue" textColor="text-darkBlue" border="border border-darkBlue" />
+            <Button
+              text="read more button"
+              
+              src={blueArrowIcon}
+              textColor="text-darkBlue"
+              border="border border-darkBlue"
+            />
           </div>
         </div>
       </div>

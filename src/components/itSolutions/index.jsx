@@ -1,25 +1,25 @@
 import Button from "../button";
+import whiteArrowIcon from "../../assets/icons/white-arrow-icon.png"
 
 const ItSolutions = () => {
   return (
     <div>
-      <h3 className="font-space-grotesk text-white text-[100px] text-center leading-[110px] font-bold">
+      <h3 className="font-space-grotesk text-white text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] text-center leading-[110px] font-bold">
         Need IT Solutions?
       </h3>
       <div className="flex items-center justify-center pb-16">
-        <h3 className="font-space-grotesk text-white text-[100px] text-center leading-[110px] font-bold">
+        <h3 className="font-space-grotesk text-white text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] text-center leading-[110px] font-bold">
           Let's&nbsp;
         </h3>
-        <p className="font-poppins italic text-[100px] text-white leading-[150px]">
+        <p className="font-poppins italic text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] text-white leading-[150px]">
           start now.
         </p>
       </div>
       <div className="flex justify-center">
         <Button
           text="get free consultation"
-          width="w-[367px]"
-          hoverEffects="hover:text-darkblue hover:bg-white"
           textColor="text-white"
+          src={whiteArrowIcon}
           border="border border-white"
         />
       </div>
