@@ -16,12 +16,12 @@ function App() {
       <Navbar />
       <Hero />
       <WhyChooseUs />
-      <Blog />
       <Services />
       <Ourwork />
       <ClientsStories />
       <Projects />
       <AskQuestions />
+      <Blog />
       <FooterContainer />
 
     </>
