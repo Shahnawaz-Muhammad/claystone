@@ -7,8 +7,6 @@ import FooterContainer from "./components/footerContainer";
 import ClientsStories from "./components/clients-stories";
 import Projects from "./components/projects";
 import AskQuestions from "./components/qna";
-
-import Ourwork from "./components/our-work";
 import Services from "./components/services";
 import OurWork from "./components/our-work";
 // import MovingBox from "./components/moving-box";
@@ -21,14 +19,13 @@ function App() {
       <Hero />
       <WhyChooseUs />
       <OurWork />
-      <Blog />
-      <Services />
-      <Ourwork />
       <ClientsStories />
       <Services />
       <Projects />
       <AskQuestions />
+      <Blog />
       <FooterContainer />
+      
 
     </>
   );

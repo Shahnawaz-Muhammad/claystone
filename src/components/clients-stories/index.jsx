@@ -26,8 +26,8 @@ const ClientsStories = () => {
   return (
     <div className="bg-darkBlue text-white py-20">
       <div className="w-[90%] lg:w-[95%] xl:w-[86%] mx-auto ">
-        <div className="flex justify-between items-center">
-          <h3 className="font-space-grotesk text-[50px] sm:text-[60px] md:text-[80px] lg:text-[100px] text-[#fff] leading-[60px] sm:leading-[70px] md:leading-[90px] lg:leading-[110px] pb-20 font-semibold ">
+        <div className="flex justify-between items-center pb-20">
+          <h3 className="font-space-grotesk text-[50px] sm:text-[60px] md:text-[80px] lg:text-[90px] text-[#fff] leading-[60px] sm:leading-[70px] md:leading-[90px] lg:leading-[110px]  font-semibold ">
             Client Stories
           </h3>
           <FaArrowRight className="text-[4rem]" />

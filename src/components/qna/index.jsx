@@ -38,7 +38,7 @@ const AskQuestions = () => {
         <div className="flex flex-col lg:flex-row justify-between gap-10 h-full">
           <div className=" h-full  lg:w-1/2 flex-grow rounded-3xl  px-10  flex flex-row md:flex-col ">
             <div className="w-full flex flex-col md:flex-row lg:flex-col justify-between gap-5 py-5 md:h-[20rem] xl:h-[25rem]">
-              <h3 className="  font-space-grotesk text-6xl md:text-5xl lg:text-6xl xl:text-8xl text-[#fff]  font-semibold ">
+              <h3 className="  font-space-grotesk text-6xl md:text-5xl lg:text-6xl xl:text-7xl text-[#fff]  font-semibold ">
                 Got Any Questions?
               </h3>
 

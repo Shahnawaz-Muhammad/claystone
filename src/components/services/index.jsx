@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import arrowicon from "../../assets/icons/Arrow Icon.png";
+import arrowicon from "../../assets/icons/Arrow Icon-2.png";
+import shortArrowIcon from "../../assets/icons/Arrow Icon short.png";
 import cyberpic from "../../assets/cyber.jpg"
 const Services = () => {
   const arr = [
@@ -40,7 +41,7 @@ const Services = () => {
             {expandedId === data.id ? null:<img
                 src={arrowicon}
                 alt="none"
-                className="text-darkBlue sm:w-[100px] sm:h-8 w-[60px] h-4 transform"
+                className="text-darkBlue w-20"
               />}
               
             </div>
@@ -52,10 +53,10 @@ const Services = () => {
                 {data.services}
               </h1>
                 <p className="text-darkBlue mt-4 font-medium">{data.content}</p>
-                <img src={arrowicon} className="mt-5"></img>
+                <img src={shortArrowIcon} className="mt-5 w-16"></img>
                 </div>
                 <div className="  h-52 w-[100%] md:w-[45%] ">
-                    <img src={cyberpic} className="w-full h-full pt-5 md:pt-0"></img>
+                    <img src={cyberpic} className="w-full h-full pt-5 md:pt-0 rounded-lg"></img>
                 </div>
               </div>
             )}

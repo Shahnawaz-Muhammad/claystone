@@ -1,27 +1,24 @@
 import Button from "../button";
-import whiteArrowIcon from "../../assets/icons/white-arrow-icon.png"
+import longArrow from "../../assets/icons/white-arrow-icon.png";
 
 const ItSolutions = () => {
   return (
     <div>
-      <h3 className="font-space-grotesk text-white text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] text-center leading-[110px] font-bold">
+      <h3 className="font-space-grotesk text-white text-5xl lg:text-7xl text-center leading-[5rem] lg:leading-[6rem] font-semibold">
         Need IT Solutions?
       </h3>
       <div className="flex items-center justify-center pb-16">
-        <h3 className="font-space-grotesk text-white text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] text-center leading-[110px] font-bold">
+        <h3 className="font-space-grotesk text-white text-5xl lg:text-7xl leading-[5rem] lg:leading-[6rem] text-center  font-semibold">
           Let's&nbsp;
         </h3>
-        <p className="font-poppins italic text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] text-white leading-[150px]">
+        <p className="font-poppins italic text-5xl lg:text-7xl text-white leading-[5rem] lg:leading-[6rem] font-light">
           start now.
         </p>
       </div>
       <div className="flex justify-center">
-        <Button
-          text="get free consultation"
-          textColor="text-white"
-          src={whiteArrowIcon}
-          border="border border-white"
-        />
+        <button className="border border-white text-white px-6 py-3 md:px-10 md:py-5 rounded-lg flex gap-3 md:gap-5 items-center">
+          Explore Now <img src={longArrow} alt="long arrow" />
+        </button>
       </div>
     </div>
   );
