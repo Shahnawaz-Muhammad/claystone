@@ -24,8 +24,8 @@ const Services = () => {
 
   return (
     <div className="bg-lightBlue flex justify-center">
-      <div className="w-[90%]">
-        <div className="flex justify-center mt-32 mb-28">
+      <div className="w-[90%] lg:w-[95%] xl:w-[86%] mx-auto my-40">
+        <div className="flex justify-center  mb-28">
           <p className="text-darkBlue text-[70px] font-bold">Services</p>
         </div>
         {arr.map((data) => (
@@ -34,7 +34,7 @@ const Services = () => {
               className="flex justify-between items-center mt-8 cursor-pointer"
               onClick={() => handleArrowClick(data.id)}
             >
-               {expandedId === data.id ? null:<h1 className="text-darkBlue sm:text-5xl text-2xl font-normal">
+               {expandedId === data.id ? null:<h1 className="text-darkBlue sm:text-4xl text-2xl font-light italic">
                 {data.services}
               </h1>}
             {expandedId === data.id ? null:<img
@@ -48,7 +48,7 @@ const Services = () => {
             {expandedId === data.id && (
               <div className="flex flex-col items-center  md:flex md:flex-row md:justify-between  cursor-pointer  "  onClick={() => handleArrowClick(data.id)} >
                <div className="w-[100%] md:w-[50%]">
-               <h1 className="text-darkBlue lg:text-5xl text-3xl font-normal">
+               <h1 className="text-darkBlue lg:text-5xl text-3xl font-semibold font-space-grotesk">
                 {data.services}
               </h1>
                 <p className="text-darkBlue mt-4 font-medium">{data.content}</p>

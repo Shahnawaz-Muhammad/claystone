@@ -30,7 +30,7 @@ const Projects = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-orangePeel p-20 text-center flex flex-col gap-8 container-shadow">
+          <div className="w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-orangePeel p-3 md:p-20 text-center flex flex-col gap-8 container-shadow">
             <p className="text-lg">CYBER SECURITY</p>
             <div>
               <h3 className="text-7xl md:text-4xl lg:text-7xl font-space-grotesk font-bold">
