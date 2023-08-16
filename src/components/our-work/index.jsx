@@ -57,10 +57,10 @@ const interval = setInterval(() => {
   };
  
   return (
-    <div className="p-20 w-full flex flex-col items-center text-center bg-lightBlue"
+    <div className="p-40  w-full flex flex-col items-center text-center bg-lightBlue "
     onMouseEnter={()=>handleMouseEnter()}
     >
-      <h1 className="text-5xl md:text-6xl xl:text-8xl font-bold mb-4 pt-44">
+      <h1 className="text-5xl md:text-6xl xl:text-8xl font-bold mb-4 ">
         We believe that{" "}
         <span className="font-light font-style: italic px-3">technology</span>
         can{" "}
