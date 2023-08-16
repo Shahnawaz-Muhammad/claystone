@@ -52,3 +52,17 @@
   animation-fill-mode: forwards;
   text-shadow: 0 0 20px #000; 
 }
+
+.bottomBorder{
+  
+  align-items: center;
+}
+
+.bottomBorder::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 10px;
+  width: 100%;
+  background-color: #FF9D00;
+}
