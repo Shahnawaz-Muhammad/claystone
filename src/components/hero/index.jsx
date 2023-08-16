@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import longArrow from "../../assets/icons/Arrow Icon.svg";
-
+import WavingLine from '../curvelineAnimation/WavingLine';
 const Hero = () => {
     const text = "YOUR BEST IT PARTNERS";
     const textArray = text.split('');
@@ -26,10 +26,10 @@ const Hero = () => {
 
   return (
     <div className="bg-darkBlue text-white w-full font-space-grotesk px-5">
-      <div className="container mx-auto min-h-screen flex justify-center">
+      <div className="container mx-auto min-h-screen flex justify-center ">
         <div className="flex justify-center items-center">
           <div className="flex flex-col items-center gap-10">
-            <div className="flex flex-col items-center max-w-5xl">
+            <div className="flex flex-col items-center max-w-5xl z-40">
               <h1 className="text-[3rem] md:text-[6rem] lg:text-[10rem] leading-[3rem] md:leading-[6rem] lg:leading-[10rem] text-center font-bold">
                 
               {textArray.map((char, index) => (
@@ -43,11 +43,12 @@ const Hero = () => {
                 experts is dedicated to delivering solutions that are tailored
                 to your unique needs.
               </p>
-            </div>
 
-            <button className="border border-white px-6 py-3 md:px-10 md:py-5 rounded-lg flex gap-3 md:gap-5 items-center">
+            <button className="mt-12 bg-darkBlue border border-white px-6 py-3 md:px-10 md:py-5 rounded-lg flex gap-3 md:gap-5 items-center z-50">
               Explore Now <img src={longArrow} alt="long arrow" />
             </button>
+            </div>
+            <WavingLine />
           </div>
         </div>
       </div>
