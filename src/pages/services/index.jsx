@@ -52,7 +52,7 @@ const data = [
             <div className="my-3 px-5 md:px-10 lg:px-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-5 ">
                 {data.map(item => (
                     <div key={item.id} className="w-full h-96 border-t-8 border-blue shadow-2xl md:transition-transform duration-300 hover:scale-105">
-                        <div className='mt-8 w-full h-32 mt-4 flex flex-row justify-center'>
+                        <div className='mt-8 w-full h-32 flex flex-row justify-center'>
                             {item.icon === 'FcAbout' && <FcAbout className='w-32 h-32' />}
                             {item.icon === 'FcManager' && <FcManager className='w-32 h-32' />}
                             {item.icon === 'RiTeamFill' && <RiTeamFill className='w-32 h-32' />}
