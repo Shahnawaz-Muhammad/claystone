@@ -16,8 +16,8 @@ const ItSolutions = () => {
         </p>
       </div>
       <div className="flex justify-center">
-        <button className="border border-white text-white px-6 py-3 md:px-10 md:py-5 rounded-lg flex gap-3 md:gap-5 items-center">
-          Explore Now <img src={longArrow} alt="long arrow" />
+        <button className="border border-white text-white px-6 py-3 md:px-7 md:py-5 rounded-lg flex gap-3 md:gap-5 items-center">
+          GET FREE CONSULTATION <img src={longArrow} alt="long arrow" />
         </button>
       </div>
     </div>

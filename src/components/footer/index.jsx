@@ -91,7 +91,7 @@ const Footer = () => {
         <div className="col-span-12 sm:col-span-4 lg:col-span-2">
           <div>
             <div className="grid gap-4">
-              <h6 className="font-poppins font-semibold text-[32px] text-white leading-[40px]">
+              <h6 className="font-poppins font-semibold text-[20px] text-white leading-[30px]">
                 Explore
               </h6>
               <ul className="grid gap-3">
@@ -99,7 +99,7 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href={explore.href}
-                      className="font-poppins text-[20px] text-white leading-[30px] capitalize"
+                      className="font-poppins md:text-base text-lightBlue capitalize"
                     >
                       {explore.link}
                     </a>
@@ -113,7 +113,7 @@ const Footer = () => {
         <div className="col-span-12 sm:col-span-4 lg:col-span-2">
           <div>
             <div className="grid gap-4">
-              <h6 className="font-poppins font-semibold text-[32px] text-white leading-[40px]">
+              <h6 className="font-poppins font-semibold text-[20px] text-white leading-[30px]">
                 Contact
               </h6>
               <div>
@@ -122,7 +122,7 @@ const Footer = () => {
                     <li key={index}>
                       <a
                         href={contact.href}
-                        className="font-poppins text-[20px] text-white leading-[30px] capitalize"
+                        className="font-poppins md:text-base text-lightBlue capitalize"
                       >
                         {contact.link}
                       </a>
@@ -135,10 +135,10 @@ const Footer = () => {
         </div>
 
         <div className="col-span-12 lg:col-span-4">
-          <h6 className="font-poppins font-semibold text-[32px] text-white leading-[40px]">
+          <h6 className="font-poppins font-semibold text-[20px] text-white leading-[30px]">
             Newsletter
           </h6>
-          <p className="font-poppins text-[20px] text-white leading-[30px] pt-6">
+          <p className="font-poppins md:text-base text-lightBlue pt-6">
             Subscribe to our newsletter to stay informed about our latest
             products, services, and promotions. Feel free to unsubscribe
             anytime!
