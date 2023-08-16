@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import project1 from "../../assets/images/192 1.png";
 
 const Projects = () => {
+
+  const [showShadow, setShowShadow] = useState(true);
+
+  useEffect(() => {
+    // Toggle the shadow after every 3 seconds
+    const toggleShadowInterval = setInterval(() => {
+      setShowShadow((prevShowShadow) => !prevShowShadow);
+    }, 1000);
+
+    return () => clearInterval(toggleShadowInterval);
+  }, []);
+
+
   return (
     <div className="bg-darkBlue text-white pt-40 pb-20">
       <div className="grid gap-[50px] lg:gap-[80px] w-[90%] lg:w-[95%] xl:w-[86%] mx-auto ">
@@ -18,7 +31,7 @@ const Projects = () => {
         </div>
 
         <div className="flex flex-col md:flex-row items-center gap-10 h-full">
-          <div className="w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-gradientStart px-10 py-12 flex flex-col justify-end">
+        <div className={`w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-gradientStart p-5 md:p-20 text-center flex flex-col gap-8 container-shadow ${showShadow ? 'shadow-visible' : 'shadow-hidden'}`}>
             <div className="flex flex-col gap-5 pt-10">
               <div>
               <img src={project1} alt="" />
@@ -30,7 +43,7 @@ const Projects = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-orangePeel p-3 md:p-20 text-center flex flex-col gap-8 container-shadow">
+          <div className={`w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-orangePeel p-5 md:p-20 text-center flex flex-col gap-8 container-shadow ${showShadow ? 'shadow-visible-orange' : 'shadow-hidden'}`}>
             <p className="text-lg">CYBER SECURITY</p>
             <div>
               <h3 className="text-7xl md:text-4xl lg:text-7xl font-space-grotesk font-bold">
