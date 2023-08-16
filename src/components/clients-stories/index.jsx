@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,8 +13,73 @@ import google from "../../assets/images/google.png";
 import amazon from "../../assets/images/amazon.png";
 import windows from "../../assets/images/windows.png";
 import sony from "../../assets/images/sony.png";
+import { useAnimation, motion } from "framer-motion";
 
 const ClientsStories = () => {
+  const headingControls = useAnimation();
+  const contentControls = useAnimation();
+  const featuredCompaniesControls = useAnimation();
+  const headingRef = useRef(null);
+  const contentRef = useRef(null);
+  const featuredCompaniesRef = useRef(null);
+  useEffect(() => {
+    const headingElement = headingRef.current;
+    const contentElement = contentRef.current;
+    const featuredCompaniesElement = featuredCompaniesRef.current;
+    const handleScroll = () => {
+      const { top: headingTop } = headingElement.getBoundingClientRect();
+      const { top: contentTop } = headingElement.getBoundingClientRect();
+      const { top: featuredCompaniesTop } =
+        featuredCompaniesElement.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (headingTop < windowHeight * 0.8) {
+        headingControls.start("visible");
+      }
+
+      if (contentTop < windowHeight * 0.6) {
+        contentControls.start("visible");
+      }
+
+      if (featuredCompaniesTop < windowHeight * 0.8) {
+        featuredCompaniesControls.start("visible");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [headingControls, contentControls, featuredCompaniesControls]);
+
+  const headingVariants = {
+    hidden: { opacity: 0, y: -60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const featuredCompaniesVariants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   const images = [
     { id: 1, src: samsung, alt: "none" },
     { id: 2, src: google, alt: "none" },
@@ -26,13 +91,25 @@ const ClientsStories = () => {
   return (
     <div className="bg-darkBlue text-white py-20">
       <div className="w-[90%] lg:w-[95%] xl:w-[86%] mx-auto ">
-        <div className="flex justify-between items-center pb-20">
+        <motion.div
+          ref={headingRef}
+          initial="hidden"
+          animate={headingControls}
+          variants={headingVariants}
+          className="flex justify-between items-center pb-20"
+        >
           <h3 className="font-space-grotesk text-[50px] sm:text-[60px] md:text-[80px] lg:text-[90px] text-[#fff] leading-[60px] sm:leading-[70px] md:leading-[90px] lg:leading-[110px]  font-semibold ">
             Client Stories
           </h3>
           <FaArrowRight className="text-[4rem]" />
-        </div>
-        <div className="w-full flex flex-col  md:flex-row justify-between items-center">
+        </motion.div>
+        <motion.div
+          ref={contentRef}
+          initial="hidden"
+          animate={contentControls}
+          variants={contentVariants}
+          className="w-full flex flex-col  md:flex-row justify-between items-center"
+        >
           <div className="flex flex-col gap-5">
             <h1 className="text-5xl text-orangePeel font-space-grotesk font-semibold">
               Amazing!
@@ -72,9 +149,15 @@ const ClientsStories = () => {
               <img src={person2} alt="review" className="w-16" />
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="">
+        <motion.div
+          ref={featuredCompaniesRef}
+          initial="hidden"
+          animate={featuredCompaniesControls}
+          variants={featuredCompaniesVariants}
+          className=""
+        >
           <div className="flex justify-center ">
             <div className=" w-full max-w-screen-xl flex justify-between  bg-opacity-70 py-20 ">
               <Swiper
@@ -122,7 +205,7 @@ const ClientsStories = () => {
               </Swiper>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -1,6 +1,73 @@
+import { useAnimation, motion } from "framer-motion";
 import longArrow from "../../assets/icons/Arrow Icon.png";
+import { useEffect, useRef } from "react";
 
 const Blog = () => {
+  const headingControls = useAnimation();
+  const descControls = useAnimation();
+  const contentControls = useAnimation();
+  const headingRef = useRef(null);
+  const descRef = useRef(null);
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    const headingElement = headingRef.current;
+    const descElement = descRef.current;
+    const contentElement = contentRef.current;
+    const handleScroll = () => {
+      const { top: headingTop } = headingElement.getBoundingClientRect();
+      const { top: descTop } = descElement.getBoundingClientRect();
+      const { top: contentTop } = contentElement.getBoundingClientRect();
+
+      const windowHeight = window.innerHeight;
+
+      if (headingTop < windowHeight * 0.8) {
+        headingControls.start("visible");
+      }
+
+      if (descTop < windowHeight * 0.8) {
+        descControls.start("visible");
+      }
+
+      if (contentTop < windowHeight * 0.8) {
+        contentControls.start("visible");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [headingControls, descControls, contentControls]);
+
+  const headingVariants = {
+    hidden: { opacity: 0, y: -60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const descVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1.5, ease: "easeOut" },
+    },
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   const blogData = [
     {
       name: "tech",
@@ -28,17 +95,35 @@ const Blog = () => {
       <div className="w-[90%] lg:w-[95%] xl:w-[86%] mx-auto">
         <div className="grid gap-20">
           <div className="grid gap-[20px]">
-            <h3 className="font-space-grotesk text-darkBlue text-7xl text-center leading-[110px] font-bold">
+            <motion.h3
+              ref={headingRef}
+              initial="hidden"
+              variants={headingVariants}
+              animate={headingControls}
+              className="font-space-grotesk text-darkBlue text-7xl text-center leading-[110px] font-bold"
+            >
               Blog
-            </h3>
-            <p className="font-poppins text-darkBlue text-[20px] text-center leading-[30px] lg:w-[896px] lg:mx-auto">
+            </motion.h3>
+            <motion.p
+              ref={descRef}
+              initial="hidden"
+              variants={descVariants}
+              animate={descControls}
+              className="font-poppins text-darkBlue text-[20px] text-center leading-[30px] lg:w-[896px] lg:mx-auto"
+            >
               Stay up to date with the latest trends and insights in technology
               with our informative blog. From industry news to expert tips,
               we've got you covered.
-            </p>
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px] mx-auto">
+          <motion.div
+            ref={contentRef}
+            initial="hidden"
+            variants={contentVariants}
+            animate={contentControls}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px] mx-auto"
+          >
             {blogData.map((data, index) => (
               <div key={index}>
                 {data.unique ? (
@@ -75,10 +160,10 @@ const Blog = () => {
                 )}
               </div>
             ))}
-          </div>
+          </motion.div>
 
           <div className="flex justify-center">
-          <button className="border border-darkBlue px-6 py-3 md:px-10 md:py-5 rounded-lg flex gap-3 md:gap-5 items-center">
+            <button className="border border-darkBlue px-6 py-3 md:px-10 md:py-5 rounded-lg flex gap-3 md:gap-5 items-center">
               Explore Now <img src={longArrow} alt="long arrow" />
             </button>
           </div>

@@ -54,7 +54,6 @@ const WhyChooseUs = () => {
     },
   };
 
-  // ... rest of the code ...
   const featuresData = [
     {
       img: <ExpertiseAnimation />,
