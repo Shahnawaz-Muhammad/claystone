@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef,useState  } from "react";
 import project1 from "../../assets/images/192 1.png";
 import { useAnimation, motion } from "framer-motion";
 
@@ -63,6 +63,19 @@ const Projects = () => {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
+
+  const [showShadow, setShowShadow] = useState(true);
+
+  useEffect(() => {
+    // Toggle the shadow after every 3 seconds
+    const toggleShadowInterval = setInterval(() => {
+      setShowShadow((prevShowShadow) => !prevShowShadow);
+    }, 1000);
+
+    return () => clearInterval(toggleShadowInterval);
+  }, []);
+
+
   return (
     <div className="bg-darkBlue text-white pt-40 pb-20">
       <div className="grid gap-[50px] lg:gap-[80px] w-[90%] lg:w-[95%] xl:w-[86%] mx-auto ">
@@ -109,7 +122,7 @@ const Projects = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-orangePeel p-3 md:p-20 text-center flex flex-col gap-8 container-shadow">
+          <div className={`w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-orangePeel p-5 md:p-20 text-center flex flex-col gap-8 container-shadow ${showShadow ? 'shadow-visible-orange' : 'shadow-hidden'}`}>
             <p className="text-lg">CYBER SECURITY</p>
             <div>
               <h3 className="text-7xl md:text-4xl lg:text-7xl font-space-grotesk font-bold">

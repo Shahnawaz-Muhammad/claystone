@@ -3,6 +3,7 @@ import arrowicon from "../../assets/icons/Arrow Icon-2.png";
 import shortArrowIcon from "../../assets/icons/Arrow Icon short.png";
 import cyberpic from "../../assets/cyber.jpg";
 import { useAnimation, motion } from "framer-motion";
+
 const Services = () => {
   const headingControls = useAnimation();
   const contentControls = useAnimation();
@@ -49,6 +50,7 @@ const Services = () => {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
+
   const arr = [
     {
       id: 1,
