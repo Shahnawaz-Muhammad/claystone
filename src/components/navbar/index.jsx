@@ -3,10 +3,10 @@ import claystonelogo from "../../assets/claystone-logo.png";
 const Navbar = () => {
   const arr = [
     { id: 1, name: "ABOUT US" },
-    { id: 1, name: "SERVICES" },
-    { id: 1, name: "PRICING" },
-    { id: 1, name: "BLOG" },
-    { id: 1, name: "CONTACT" },
+    { id: 2, name: "SERVICES" },
+    { id: 3, name: "PRICING" },
+    { id: 4, name: "BLOG" },
+    { id: 5, name: "CONTACT" },
   ];
 
   return (
@@ -19,16 +19,16 @@ const Navbar = () => {
             alt="none"
           ></img>
         </div>
-        <div className=" items-center gap-6 lg:gap-14 xl:gap-16 hidden md:flex">
+        <div className="items-center gap-6 lg:gap-14 xl:gap-16 hidden md:flex">
           {arr.map((data) => {
             return (
-              <div className="text-white text-base" id={data.id}>
+              <div className="text-white text-base" key={data.id}>
                 <p>{data.name}</p>
               </div>
             );
           })}
         </div>
-        <div className=" border-2 flex items-center">
+        <div className="border-2 flex items-center">
           <button className="text-white border-[1px] text-base border-white rounded-[5px] h-[48px] w-[100px]">
             SIGN IN
           </button>

@@ -3,7 +3,7 @@ import project1 from "../../assets/images/192 1.png";
 
 const Projects = () => {
   return (
-    <div className="bg-darkBlue text-white py-20">
+    <div className="bg-darkBlue text-white pt-40 pb-20">
       <div className="grid gap-[50px] lg:gap-[80px] w-[90%] lg:w-[95%] xl:w-[86%] mx-auto ">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <h3 className="w-full md:w-1/2 font-space-grotesk text-[50px] sm:text-[60px] md:text-[80px] lg:text-[100px] text-[#fff] leading-[60px] sm:leading-[70px] md:leading-[90px] lg:leading-[110px] font-semibold ">
@@ -30,7 +30,7 @@ const Projects = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-orangePeel p-20 text-center flex flex-col gap-8 container-shadow">
+          <div className="w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-orangePeel p-3 md:p-20 text-center flex flex-col gap-8 container-shadow">
             <p className="text-lg">CYBER SECURITY</p>
             <div>
               <h3 className="text-7xl md:text-4xl lg:text-7xl font-space-grotesk font-bold">

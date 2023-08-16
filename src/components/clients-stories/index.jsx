@@ -8,11 +8,11 @@ import "swiper/css";
 
 import person1 from "../../assets/images/tom-johnson-rev.png";
 import person2 from "../../assets/images/john-dov-rev.png";
-import samsung from "../../assets/images/samsung.png"
-import google from "../../assets/images/google.png"
-import amazon from "../../assets/images/amazon.png"
-import windows from "../../assets/images/windows.png"
-import sony from "../../assets/images/sony.png"
+import samsung from "../../assets/images/samsung.png";
+import google from "../../assets/images/google.png";
+import amazon from "../../assets/images/amazon.png";
+import windows from "../../assets/images/windows.png";
+import sony from "../../assets/images/sony.png";
 
 const ClientsStories = () => {
   const images = [
@@ -25,14 +25,14 @@ const ClientsStories = () => {
 
   return (
     <div className="bg-darkBlue text-white py-20">
-      <div className="grid gap-[50px] lg:gap-[80px] w-[90%] lg:w-[95%] xl:w-[86%] mx-auto ">
-        <div className="flex justify-between items-center">
-          <h3 className="font-space-grotesk text-[50px] sm:text-[60px] md:text-[80px] lg:text-[100px] text-[#fff] leading-[60px] sm:leading-[70px] md:leading-[90px] lg:leading-[110px] font-semibold ">
+      <div className="w-[90%] lg:w-[95%] xl:w-[86%] mx-auto ">
+        <div className="flex justify-between items-center pb-20">
+          <h3 className="font-space-grotesk text-[50px] sm:text-[60px] md:text-[80px] lg:text-[90px] text-[#fff] leading-[60px] sm:leading-[70px] md:leading-[90px] lg:leading-[110px]  font-semibold ">
             Client Stories
           </h3>
           <FaArrowRight className="text-[4rem]" />
         </div>
-        <div className="flex flex-col  md:flex-row justify-between items-center">
+        <div className="w-full flex flex-col  md:flex-row justify-between items-center">
           <div className="flex flex-col gap-5">
             <h1 className="text-5xl text-orangePeel font-space-grotesk font-semibold">
               Amazing!
@@ -111,7 +111,10 @@ const ClientsStories = () => {
               >
                 {images.map((image) => {
                   return (
-                    <SwiperSlide className="w-full flex justify-between" key={image.id}>
+                    <SwiperSlide
+                      className="w-full flex justify-between"
+                      key={image.id}
+                    >
                       <img src={image.src} alt="" className="mx-auto h-full" />
                     </SwiperSlide>
                   );
@@ -119,7 +122,6 @@ const ClientsStories = () => {
               </Swiper>
             </div>
           </div>
-
         </div>
       </div>
     </div>
