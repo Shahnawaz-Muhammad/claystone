@@ -4,6 +4,7 @@ import FooterContainer from "./components/footerContainer";
 import Home from "./pages/home";
 import { Route, Routes } from "react-router-dom";
 import Contact from "./pages/contact";
+import Services from "./pages/services";
 
 // import MovingBox from "./components/moving-box";
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/services" element={<Services />} />
       </Routes>
       <FooterContainer />
     </>

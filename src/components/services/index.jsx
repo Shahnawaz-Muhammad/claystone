@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import arrowicon from "../../assets/icons/Arrow Icon-2.png";
 import shortArrowIcon from "../../assets/icons/Arrow Icon short.png";
 import cyberpic from "../../assets/cyber.jpg"
-const Services = () => {
+const Service = () => {
   const arr = [
     { id: 1, services: "Web Development", content: "service provides advanced protection for your data and systems against potential threats and attacks, ensuring your business operates securely and efficiently." },
     { id: 2, services: "Mobile Development", content: "Our cyber security service provides advanced protection for your data and systems against potential threats and attacks, ensuring your business operates securely and efficiently." },
@@ -68,4 +68,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Service;

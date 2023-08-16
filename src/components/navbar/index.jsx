@@ -3,8 +3,9 @@ import claystonelogo from "../../assets/claystone-logo.png";
 import { Link } from "react-router-dom";
 const Navbar = () => {
   const arr = [
-    { id: 1, name: "ABOUT US", url: "/about" },
-    { id: 3, name: "Services", url: "/services" },
+    { id: 1, name: "HOME", url: "/" },
+    { id: 2, name: "ABOUT US", url: "/about" },
+    { id: 3, name: "SERVICES", url: "/services" },
     { id: 4, name: "BLOG", url: "/blog" },
     { id: 5, name: "CONTACT", url: "/contact" },
   ];

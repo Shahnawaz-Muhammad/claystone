@@ -5,7 +5,7 @@ import Blog from "../../components/blog";
 import ClientsStories from "../../components/clients-stories";
 import Projects from "../../components/projects";
 import AskQuestions from "../../components/qna";
-import Services from "../../components/services";
+import Service from "../../components/services";
 import OurWork from "../../components/our-work";
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
       <WhyChooseUs />
       <OurWork />
       <ClientsStories />
-      <Services />
+      <Service />
       <Projects />
       <AskQuestions />
       <Blog />
