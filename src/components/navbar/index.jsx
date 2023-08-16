@@ -1,29 +1,34 @@
 import React from "react";
 import claystonelogo from "../../assets/claystone-logo.png";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const arr = [
-    { id: 1, name: "ABOUT US" },
-    { id: 2, name: "SERVICES" },
-    { id: 3, name: "PRICING" },
-    { id: 4, name: "BLOG" },
-    { id: 5, name: "CONTACT" },
+    { id: 1, name: "ABOUT US", url: "/about" },
+    { id: 3, name: "Services", url: "/services" },
+    { id: 4, name: "BLOG", url: "/blog" },
+    { id: 5, name: "CONTACT", url: "/contact" },
   ];
 
   return (
     <div className="bg-darkBlue flex justify-center z-30">
       <div className="w-[90%] lg:w-[95%] xl:w-[86%]  flex items-center  justify-between py-5 ">
         <div>
-          <img
-            src={claystonelogo}
-            className="w-[200px] h-[32px]"
-            alt="none"
-          ></img>
+          <Link to="/">
+            {" "}
+            <img
+              src={claystonelogo}
+              className="w-[200px] h-[32px]"
+              alt="none"
+            />
+          </Link>
         </div>
         <div className="items-center gap-6 lg:gap-14 xl:gap-16 hidden md:flex">
           {arr.map((data) => {
             return (
               <div className="text-white text-base" key={data.id}>
-                <p>{data.name}</p>
+                <Link to={data.url}>
+                  <p>{data.name}</p>
+                </Link>
               </div>
             );
           })}

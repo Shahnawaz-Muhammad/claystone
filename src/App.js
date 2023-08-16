@@ -1,32 +1,21 @@
 import "./App.css";
-import WhyChooseUs from "./components/whyChooseUs";
-import Hero from "./components/hero";
 import Navbar from "./components/navbar";
-import Blog from "./components/blog";
 import FooterContainer from "./components/footerContainer";
-import ClientsStories from "./components/clients-stories";
-import Projects from "./components/projects";
-import AskQuestions from "./components/qna";
-import Services from "./components/services";
-import OurWork from "./components/our-work";
+import Home from "./pages/home";
+import { Route, Routes } from "react-router-dom";
+import Contact from "./pages/contact";
+
 // import MovingBox from "./components/moving-box";
 
 function App() {
   return (
     <>
       <Navbar />
-      {/* <MovingBox/> */}
-      <Hero />
-      <WhyChooseUs />
-      <OurWork />
-      <ClientsStories />
-      <Services />
-      <Projects />
-      <AskQuestions />
-      <Blog />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
       <FooterContainer />
-      
-
     </>
   );
 }
