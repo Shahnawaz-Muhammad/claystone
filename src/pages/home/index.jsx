@@ -7,6 +7,7 @@ import Projects from "../../components/projects";
 import AskQuestions from "../../components/qna";
 import Service from "../../components/services";
 import OurWork from "../../components/our-work";
+import ItSolutions from "../../components/itSolutions";
 
 const Home = () => {
   return (
@@ -19,6 +20,8 @@ const Home = () => {
       <Projects />
       <AskQuestions />
       <Blog />
+      <ItSolutions />
+
     </>
   );
 };
