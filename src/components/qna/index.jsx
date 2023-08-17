@@ -1,8 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { HiPlus, HiMinus } from "react-icons/hi";
 import longArrow from "../../assets/icons/Arrow Icon.svg";
+import { motion, useAnimation } from "framer-motion";
 
 const AskQuestions = () => {
+  const headingControls = useAnimation();
+  const contentControls = useAnimation();
+  const headingRef = useRef(null);
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    const headingElement = headingRef.current;
+    const contentElement = contentRef.current;
+    const handleScroll = () => {
+      const { top: headingTop } = headingElement.getBoundingClientRect();
+      const { top: contentTop } = contentElement.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      if (headingTop < windowHeight * 0.8) {
+        headingControls.start("visible");
+      }
+      if (contentTop < windowHeight * 0.8) {
+        contentControls.start("visible");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [headingControls, contentControls]);
+
+  const headingVariants = {
+    hidden: { opacity: 0, y: -60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, y: -60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
   const faqList = [
     {
       id: 1,
@@ -36,9 +80,15 @@ const AskQuestions = () => {
     <div className="bg-darkBlue text-white py-20">
       <div className=" w-[90%] lg:w-[95%] xl:w-[86%] mx-auto ">
         <div className="flex flex-col lg:flex-row justify-between gap-10 h-full">
-          <div className=" h-full  lg:w-1/2 flex-grow rounded-3xl  px-10  flex flex-row md:flex-col ">
+          <motion.div
+            ref={headingRef}
+            initial="hidden"
+            animate={headingControls}
+            variants={headingVariants}
+            className=" h-full  lg:w-1/2 flex-grow rounded-3xl  px-10  flex flex-row md:flex-col "
+          >
             <div className="w-full flex flex-col md:flex-row lg:flex-col justify-between gap-5 py-5 md:h-[20rem] xl:h-[25rem]">
-              <h3 className="  font-space-grotesk text-6xl md:text-5xl lg:text-6xl xl:text-7xl text-[#fff]  font-semibold ">
+              <h3 className="font-space-grotesk text-6xl md:text-5xl lg:text-6xl xl:text-7xl text-[#fff]  font-semibold ">
                 Got Any Questions?
               </h3>
 
@@ -48,9 +98,15 @@ const AskQuestions = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="  h-full lg:w-1/2  flex-grow rounded-3xl  flex flex-col gap-8">
+          <motion.div
+            ref={contentRef}
+            initial="hidden"
+            variants={contentVariants}
+            animate={contentControls}
+            className="  h-full lg:w-1/2  flex-grow rounded-3xl  flex flex-col gap-8"
+          >
             <div className="flex flex-col items-center ">
               {faqList.map((listItem, index) => (
                 <div
@@ -72,7 +128,13 @@ const AskQuestions = () => {
                         )
                       }
                     >
-                      <span className={`text-2xl font-normal ${expandedFAQIndex === index ? "text-linkBlue" : "text-white"}`}>
+                      <span
+                        className={`text-2xl font-normal ${
+                          expandedFAQIndex === index
+                            ? "text-linkBlue"
+                            : "text-white"
+                        }`}
+                      >
                         {listItem.title}
                       </span>
                       <div className="px-1 md:px-4">
@@ -100,7 +162,7 @@ const AskQuestions = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

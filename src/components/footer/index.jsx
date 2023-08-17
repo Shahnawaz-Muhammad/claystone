@@ -3,6 +3,7 @@ import instagramIcon from "../../assets/icons/instagram-icon.png";
 import facebookIcon from "../../assets/icons/facebook-icon.png";
 import twitterIcon from "../../assets/icons/twitter-icon.png";
 import arrowIcon from "../../assets/icons/arrow-icon.png";
+import ItSolutions from "../itSolutions";
 
 const Footer = () => {
   const socialIcons = [
