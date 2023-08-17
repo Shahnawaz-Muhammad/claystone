@@ -3,7 +3,7 @@ import bg from "../Images/service.png";
 import { FiPhoneCall } from "react-icons/fi";
 import { BsEnvelope } from "react-icons/bs";
 import { MdOutlineLocationOn } from "react-icons/md";
-import contactImg from "../../assets/images/windows.png `";
+import contactImg from "../../assets/images/windows.png";
 import ContactForm from "../../components/forms/contact-form";
 
 const Contact = () => {
