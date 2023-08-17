@@ -3,6 +3,7 @@ import instagramIcon from "../../assets/icons/instagram-icon.png";
 import facebookIcon from "../../assets/icons/facebook-icon.png";
 import twitterIcon from "../../assets/icons/twitter-icon.png";
 import arrowIcon from "../../assets/icons/arrow-icon.png";
+import ItSolutions from "../itSolutions";
 
 const Footer = () => {
   const socialIcons = [
@@ -65,7 +66,10 @@ const Footer = () => {
     },
   ];
   return (
-      <div className="grid gap-20 pb-20 overflow-hidden">
+    <div className="bg-darkBlue">
+      <div className="w-[90%] lg:w-[95%] xl:w-[86%] mx-auto space-y-[223px] pt-40">
+        <ItSolutions />
+        <div className="grid gap-20 pb-20 overflow-hidden">
       <div className="grid grid-cols-12 gap-8 lg:gap-4">
         <div className="col-span-12 lg:col-span-4">
           <div className="grid gap-10">
@@ -171,6 +175,9 @@ const Footer = () => {
       </div>
       </div>
       </div>
+      </div>
+    </div>
+      
   );
 };
 
