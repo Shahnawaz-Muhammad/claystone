@@ -10,13 +10,13 @@ import AskQuestions from "./components/qna";
 import Services from "./components/services";
 import OurWork from "./components/our-work";
 // import MovingBox from "./components/moving-box";
-
+import Aboutus from "./components/aboutus/aboutus";
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       {/* <MovingBox/> */}
-      <Hero />
+      {/* <Hero />
       <WhyChooseUs />
       <OurWork />
       <ClientsStories />
@@ -24,9 +24,8 @@ function App() {
       <Projects />
       <AskQuestions />
       <Blog />
-      <FooterContainer />
-      
-
+      <FooterContainer /> */}
+   <Aboutus></Aboutus>
     </>
   );
 }
