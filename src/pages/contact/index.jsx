@@ -3,18 +3,26 @@ import bg from "../Images/service.png";
 import { FiPhoneCall } from "react-icons/fi";
 import { BsEnvelope } from "react-icons/bs";
 import { MdOutlineLocationOn } from "react-icons/md";
-import contactImg from "../../assets/images/windows.png";
+import contactImg from "../../assets/images/contact-us.jpg";
 import ContactForm from "../../components/forms/contact-form";
+import LeadsForm from "../../components/forms/leads-form";
 
 const Contact = () => {
-  const [openContactForm, setOpenContactForm] = useState(false)
+  const [openContactForm, setOpenContactForm] = useState(false);
+  const [openLeadsForm, setOpenLeadsForm] = useState(false);
 
-  const handleOpenForm = ()=> {
-    setOpenContactForm(!openContactForm)
+  const handleOpenForm = () => {
+    setOpenContactForm(!openContactForm);
+  };
+
+  const handleOpenLeadsForm  = () => {
+    setOpenLeadsForm(!openLeadsForm)
   }
+
+ 
   return (
     <div className="bg-darkBlue text-black py-20">
-      <div className=" max-w-[90%] lg:max-w-[95%] xl:max-w-[86%] mx-auto ">
+      <div className=" max-w-[100%] md:max-w-6xl mx-auto ">
         <h1 className="text-4xl font-space-grotesk font-bold uppercase text-white text-center">
           Contact Us
         </h1>
@@ -50,16 +58,43 @@ const Contact = () => {
                 Our Support Team is just a phone call away, to answer your
                 queries
               </p>
-              <button className="border-2 border-blue px-10 py-1  text-darkBlue rounded-full" onClick={handleOpenForm}>
+              <button
+                className="border-2 border-blue px-10 py-1  text-darkBlue rounded-full"
+                onClick={handleOpenForm}
+              >
                 Contact
               </button>
             </div>
-            {/* <div className="w-full flex flex-col gap-3 py-10 px-6 shadow-lg bg-white text-blue rounded-lg relative bottomBorder after:rounded-b-lg"></div> */}
+            <div className="w-full flex flex-col gap-3 py-10 px-6 shadow-lg bg-white text-blue rounded-lg relative bottomBorder after:rounded-b-lg">
+            <img src={contactImg} alt="" className="w-32 -mt-5" />
+              <h1 className="text-xl font-semibold text-darkBlue">
+                Contact Our Support
+              </h1>
+              <p>
+                Our Support Team is just a phone call away, to answer your
+                queries
+              </p>
+              <button
+                className="border-2 border-blue px-10 py-1  text-darkBlue rounded-full"
+                onClick={handleOpenLeadsForm}
+              >
+                Contact
+              </button>
+            </div>
           </div>
         </div>
-      
 
-      <ContactForm setOpenContactForm={setOpenContactForm} openContactForm={openContactForm}/>
+        {/* <div className=" "> */}
+
+        <LeadsForm
+          setOpenLeadsForm={setOpenLeadsForm}
+          openLeadsForm={openLeadsForm}
+        />
+
+        <ContactForm
+          setOpenContactForm={setOpenContactForm}
+          openContactForm={openContactForm}
+        />
       </div>
     </div>
   );
