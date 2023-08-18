@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-
+import 'react-toastify/dist/ReactToastify.css';
+import {  addDoc, collection} from "firebase/firestore"; 
+import db from '../../firebaseConfig';
+import { toast } from "react-toastify";
 const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
   const [inputValue, setInputValue] = useState({
     firstName: "",
@@ -33,13 +36,29 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
     }
     return [];
   };
-  const handleFormSubmit = (e) => {
+
+  const handleFormSubmit = async(e) => {
     e.preventDefault();
-    console.log("Input Values:", inputValue);
+   
+
+    if(inputValue.firstName!==""&&inputValue.lastName!==""&&inputValue.email!==""&&inputValue.phone!==""&&inputValue.selectedCategory!==""&&inputValue.selectedTechnology!==""&&inputValue.otherTechnology==""){
+    await addDoc(collection(db, "LeadsForm"), {
+      firstName: inputValue.firstName,
+      lastName: inputValue.lastName,
+      email: inputValue.email,
+      phone: inputValue.phone,
+      Category: inputValue.selectedCategory,
+      Technology:inputValue.selectedTechnology,
+      
+    });
+    toast.success('Data added successfully!', {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 1000, 
+    });
 
     setInputValue({
       firstName: "",
-      lastName: "",
+      lastName: "", 
       email: "",
       phone: "",
       selectedCategory: "",
@@ -47,6 +66,40 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
       otherTechnology: "",
     });
     setOpenLeadsForm(false);
+  }else if(inputValue.firstName!==""&&inputValue.lastName!==""&&inputValue.email!==""&&inputValue.phone!==""&&inputValue.selectedCategory!==""&&inputValue.selectedTechnology!==""&&inputValue.otherTechnology!==""){
+    await addDoc(collection(db, "LeadsForm"), {
+      firstName: inputValue.firstName,
+      lastName: inputValue.lastName,
+      email: inputValue.email,
+      phone: inputValue.phone,
+      Category: inputValue.selectedCategory,
+      Technology:inputValue.selectedTechnology,
+      OtherTechnology:inputValue.otherTechnology
+    });
+    toast.success('Data added successfully!', {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 1000, 
+    });
+
+    setInputValue({
+      firstName: "",
+      lastName: "", 
+      email: "",
+      phone: "",
+      selectedCategory: "",
+      selectedTechnology: "",
+      otherTechnology: "",
+    });
+    setOpenLeadsForm(false);
+  }
+  else{
+    toast.error('An error occurred. Please try again.', {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 1000, 
+    });
+
+    console.log()
+  }
   };
 
   return (
