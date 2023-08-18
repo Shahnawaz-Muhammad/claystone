@@ -1,58 +1,55 @@
 import React, { useState } from "react";
 
 const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
-  const [selectedCategory, setSelectedCategory] = useState("default");
-  const [selectedTechnology, setSelectedTechnology] = useState("default");
   const [showOtherInput, setShowOtherInput] = useState(false);
-//   const [otherTechnology, setOtherTechnology] = useState("");
-const [inputValue, setInputValue] = useState({
+  const [inputValue, setInputValue] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
-    selectedCategory:"",
-    selectedTechnology: "",
-    otherTechnology:""
+    selectedCategory: "default",
+    selectedTechnology: "default",
+    otherTechnology: "",
   });
 
   const handleInputValues = (event) => {
-    const value = event.target.value;
+    const { name, value } = event.target;
     setInputValue({
       ...inputValue,
-      [event.target.name]: value,
+      [name]: value,
     });
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    console.log("Input Values:", inputValue)
-
-    setInputValue({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        selectedCategory:"",
-        selectedTechnology: "",
-        otherTechnology:""
-    });
-    setOpenLeadsForm(false)
   };
 
   const getTechnologyOptions = () => {
-    if (selectedCategory === "web") {
+    if (inputValue.selectedCategory === "web") {
       return ["React", "ASP.Net", "PHP", "WordPress", "Other"];
-    } else if (selectedCategory === "desktop") {
+    } else if (inputValue.selectedCategory === "desktop") {
       return ["Windows", "Linux", "MacOS", "Other"];
-    } else if (selectedCategory === "mobile") {
+    } else if (inputValue.selectedCategory === "mobile") {
       return ["Flutter", "React Native", "Android", "IOS", "Other"];
-    } else if (selectedCategory === "server") {
+    } else if (inputValue.selectedCategory === "server") {
       return ["Django", "Java", "Node.js", "Other"];
-    } else if (selectedCategory === "ai") {
+    } else if (inputValue.selectedCategory === "ai") {
       return ["Python", "R-Language", "Other"];
     }
     return [];
   };
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log("Input Values:", inputValue);
+
+    setInputValue({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      selectedCategory: "",
+      selectedTechnology: "",
+      otherTechnology: "",
+    });
+    setOpenLeadsForm(false);
+  };
+
   return (
     <div
       id="authentication-modal"
@@ -175,10 +172,10 @@ const [inputValue, setInputValue] = useState({
                   </label>
                   <select
                     id="categories"
-                    name="categories"
+                    name="selectedCategory"
                     value={inputValue.selectedCategory}
                     onChange={handleInputValues}
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
                   >
                     <option selected>Choose a Category</option>
                     <option value="web">Web Application</option>
@@ -199,17 +196,10 @@ const [inputValue, setInputValue] = useState({
                   </label>
                   <select
                     id="technologies"
-                    name="technologies"
+                    name="selectedTechnology"
                     value={inputValue.selectedTechnology}
-                    onChange={(event) => {
-                      setSelectedTechnology(event.target.value);
-                      if (event.target.value === "Other") {
-                        setShowOtherInput(true);
-                      } else {
-                        setShowOtherInput(false);
-                      }
-                    }}
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    onChange={handleInputValues}
+                    class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
                   >
                     <option selected>Choose a Technology</option>
                     {getTechnologyOptions().map((tech) => (
@@ -221,18 +211,16 @@ const [inputValue, setInputValue] = useState({
                 </div>
               </div>
 
-              {showOtherInput && (
-                <div class="w-full my-4">
-                  <label
-                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    for="otherTechnology"
-                  >
+              {inputValue.selectedTechnology === "Other" && (
+                <div className="w-full my-4">
+                  <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                     Other
                   </label>
                   <input
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     id="otherTechnology"
                     type="text"
+                    name="otherTechnology"
                     value={inputValue.otherTechnology}
                     onChange={handleInputValues}
                     placeholder="Enter Other Technology"
