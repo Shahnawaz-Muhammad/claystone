@@ -59,11 +59,15 @@ const aboutus = () => {
                 </p>
               </div>
               <div className="mt-10">
-                <p className="text-[#6B6A75] font-norma text-[1rem] leading-6 ">
-                  Tempor erat elitr rebum at clita. Diam dolor diam ipsum et
-                  tempor sit. Aliqu diam amet diam et eos labore. Clita erat
-                  ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                  clita duo justo et tempor eirmod magna dolore erat amet
+                <p className="text-[#6B6A75] font-normal text-lg leading-6 ">
+                  ClayStone Pvt. Ltd. has evolved over more than two decades.
+                  Our hard work involved general trading, overseas security
+                  services, specialized IT product developments, and business
+                  consultancy services.ClayStone focuses on serving the Smart
+                  City, IT automation of Housing Societies, Economic &
+                  Industrial Zones, etc. This is the only industry standard
+                  Project customized to Pakistan's Real Estate, housing sector,
+                  and CPEC Industrial & Economic Zone benchmarks.
                 </p>
               </div>
               <div className=" sm:flex  sm:gap-32 mt-5">
