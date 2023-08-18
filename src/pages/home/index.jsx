@@ -19,7 +19,7 @@ const Home = () => {
       <Service />
       <Projects />
       <AskQuestions />
-      <Blog />
+      {/* <Blog /> */}
       <ItSolutions />
 
     </>
