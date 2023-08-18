@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-
+import 'react-toastify/dist/ReactToastify.css';
+import {  addDoc, collection} from "firebase/firestore"; 
+import db from '../../firebaseConfig';
+import { toast } from "react-toastify";
 const ContactForm = ({ openContactForm, setOpenContactForm }) => {
   const [inputValue, setInputValue] = useState({
     firstName: "",
@@ -17,18 +20,41 @@ const ContactForm = ({ openContactForm, setOpenContactForm }) => {
     });
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async(e) => {
     e.preventDefault();
-    console.log("Input Values:", inputValue)
+    if(inputValue.firstName!==""&&inputValue.lastName!==""&&inputValue.email!==""&&inputValue.phone!==""&&inputValue.message!==""){
 
-    setInputValue({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
-    setOpenContactForm(false)
+    
+     
+      await addDoc(collection(db, "ContactForm"), {
+        firstName: inputValue.firstName,
+        lastName: inputValue.lastName,
+        email: inputValue.email,
+        phone: inputValue.phone,
+        message: inputValue.message,
+      });
+      toast.success('Data added successfully!', {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1000, 
+      });
+
+      setInputValue({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+      setOpenContactForm(false)
+    } else {
+      toast.error('An error occurred. Please try again.', {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1000, 
+      });
+    }
+
+
+   
   };
 
   return (
