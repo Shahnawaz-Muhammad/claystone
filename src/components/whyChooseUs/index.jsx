@@ -110,7 +110,7 @@ const WhyChooseUs = () => {
             >
               <div>
                 {data.img}
-                <h6 className="text-[32px] leading-10 text font-semibold pt-16">
+                <h6 className="text-[32px] leading-10 text font-semibold pt-16 uppercase">
                   {data.feature}
                 </h6>
                 <p className="text-[20] leading-[30px] pt-4">

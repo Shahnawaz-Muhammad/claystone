@@ -136,7 +136,7 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
           </button>{" "}
           <div className="px-6 py-6 lg:px-8">
             <h3 className="mb-4 text-2xl font-bold text-darkBlue dark:text-white my-5 text-center underline">
-              Send your Queries
+              Tell us what you need!
             </h3>
             <form onSubmit={handleFormSubmit}>
               <div className="flex flex-wrap -mx-3 mb-6">
@@ -229,7 +229,7 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
                     onChange={handleInputValues}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
-                    <option selected>Choose a Category</option>
+                    <option value="">Choose a Category</option>
                     <option value="web">Web Application</option>
                     <option value="desktop">Desktop Application</option>
                     <option value="mobile">Mobile Application</option>
@@ -253,7 +253,7 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
                     onChange={handleInputValues}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
-                    <option selected>Choose a Technology</option>
+                    <option value="">Choose a Technology</option>
                     {getTechnologyOptions().map((tech) => (
                       <option key={tech} value={tech}>
                         {tech}
