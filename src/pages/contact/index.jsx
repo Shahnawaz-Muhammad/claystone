@@ -3,9 +3,10 @@ import bg from "../Images/service.png";
 import { FiPhoneCall } from "react-icons/fi";
 import { BsEnvelope } from "react-icons/bs";
 import { MdOutlineLocationOn } from "react-icons/md";
-import contactImg from "../../assets/images/contact-us.jpg";
 import ContactForm from "../../components/forms/contact-form";
 import LeadsForm from "../../components/forms/leads-form";
+import contactImg from "../../assets/images/contact-us.jpeg";
+import leadsImg from "../../assets/images/leads-2.jpg";
 
 const Contact = () => {
   const [openContactForm, setOpenContactForm] = useState(false);
@@ -66,19 +67,18 @@ const Contact = () => {
               </button>
             </div>
             <div className="w-full flex flex-col gap-3 py-10 px-6 shadow-lg bg-white text-blue rounded-lg relative bottomBorder after:rounded-b-lg">
-            <img src={contactImg} alt="" className="w-32 -mt-5" />
+            <img src={leadsImg} alt="" className="w-32" />
               <h1 className="text-xl font-semibold text-darkBlue">
-                Contact Our Support
+              I'm Interested 
               </h1>
               <p>
-                Our Support Team is just a phone call away, to answer your
-                queries
+              Turning Your Ideas into Powerful Software Solutions – Let's Connect!
               </p>
               <button
                 className="border-2 border-blue px-10 py-1  text-darkBlue rounded-full"
                 onClick={handleOpenLeadsForm}
               >
-                Contact
+                Let's Connect!
               </button>
             </div>
           </div>

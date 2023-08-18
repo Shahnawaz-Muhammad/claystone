@@ -46,7 +46,7 @@ const data = [
     <div>
         <div className='relative flex flex-col justify-center items-center h-full'> 
             <h1 className='text-white text-center text-4xl font-bold absolute z-40 '>SERVICES</h1>
-            <img src={service} class="h-64 w-full" alt="..." />
+            <img src={service} className="h-64 w-full" alt="..." />
         </div>
         <div>
             <div className="my-3 px-5 md:px-10 lg:px-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-5 ">
