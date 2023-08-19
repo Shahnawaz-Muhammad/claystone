@@ -19,6 +19,8 @@ const Home = () => {
       <Service />
       <Projects />
       <AskQuestions />
+      <Blog />
+      <ItSolutions />
     </>
   );
 };
