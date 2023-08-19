@@ -15,7 +15,7 @@
    
     fill: none;
     stroke: lightBlue;
-    stroke-width: 1;
+    strokeWidth: 1;
     animation: wavingAnimation 5s ease-in-out infinite alternate;
   }
   

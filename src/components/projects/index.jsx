@@ -110,7 +110,7 @@ const Projects = () => {
           animate={projectControls}
           className="flex flex-col md:flex-row items-center gap-10 h-full"
         >
-          <div className="w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-gradientStart px-10 py-12 flex flex-col justify-end">
+          <div className={`w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-gradientStart p-5 md:p-20 text-center flex flex-col gap-8 container-shadow ${showShadow ? 'shadow-visible' : 'shadow-hidden'}`}>
             <div className="flex flex-col gap-5 pt-10">
               <div>
                 <img src={project1} alt="" />
