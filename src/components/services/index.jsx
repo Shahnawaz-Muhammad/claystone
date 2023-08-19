@@ -102,7 +102,7 @@ const Services = () => {
           initial="hidden"
           variants={headingVariants}
           animate={headingControls}
-          className="flex justify-center  mb-28"
+          className="flex justify-center mb-28"
         >
           <p className="text-darkBlue text-[70px] font-bold">Services</p>
         </motion.div>

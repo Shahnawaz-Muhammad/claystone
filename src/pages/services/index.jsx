@@ -1,74 +1,85 @@
-import React from 'react'
-import service from '../Images/service.png'
-import {FcAbout} from 'react-icons/fc'
-import {RiTeamFill} from 'react-icons/ri'
-import {FcManager} from 'react-icons/fc'
-import {SiNounproject} from 'react-icons/si'
+import React, { useState } from "react";
+import service from "../Images/service.png";
+import { AiOutlineCheck } from "react-icons/ai";
 
+const Services = ({ data }) => {
+  const [displayCount, setDisplayCount] = useState(3);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-const Services = () => {
-
-const data = [
-    {id:'1', 
-     icon:'FcAbout', 
-     title:'ABOUT US', 
-     description:'About Us', 
-     url:'#' 
-    },
-    {id:'2', 
-     icon:'FcManager', 
-     title:'MANAGEMENT', 
-     description:'Our Management', 
-     url:'#' 
-    },
-    {id:'3', 
-     icon:'RiTeamFill', 
-     title:'OUR TEAM', 
-     description:'Our Team', 
-     url:'#' 
-    },
-    {id:'4', 
-     icon:'SiNounproject', 
-     title:'OUR PROJECTS', 
-     description:'Our Projects', 
-     url:'#' 
-    },
-    {id:'5', 
-     icon:'SiNounproject', 
-     title:'PRACTICE', 
-     description:'Our Practice', 
-     url:'#' 
-    },
-]
-    
-
+  const handleShowMore = () => {
+    setDisplayCount(data.length);
+    setIsExpanded(true);
+  };
+  const handleShowLess = () => {
+    setDisplayCount(3);
+    setIsExpanded(false);
+  };
   return (
     <div>
-        <div className='relative flex flex-col justify-center items-center h-full'> 
-            <h1 className='text-white text-center text-4xl font-bold absolute z-40 '>SERVICES</h1>
-            <img src={service} className="h-64 w-full" alt="..." />
-        </div>
-        <div>
-            <div className="my-3 px-5 md:px-10 lg:px-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-5 ">
-                {data.map(item => (
-                    <div key={item.id} className="w-full h-96 border-t-8 border-blue shadow-2xl md:transition-transform duration-300 hover:scale-105">
-                        <div className='mt-8 w-full h-32 mt-4 flex flex-row justify-center'>
-                            {item.icon === 'FcAbout' && <FcAbout className='w-32 h-32' />}
-                            {item.icon === 'FcManager' && <FcManager className='w-32 h-32' />}
-                            {item.icon === 'RiTeamFill' && <RiTeamFill className='w-32 h-32' />}
-                            {item.icon === 'SiNounproject' && <SiNounproject className='w-32 h-32' />}
-                        </div>
-                        <div className="mt-8 px-4 text-center flex flex-col justify-center">
-                            <h5 className="text-lg font-bold ">{item.title}</h5>
-                            <p className="mt-2 ">{item.description}</p>
-                            <a href={item.url} className="mt-2 text-xl font-bold text-blue underline underline-offset-4">MORE</a>
-                        </div>
-                    </div>
-                ))}
+      <div className="relative flex flex-col justify-center items-center h-full">
+        <h1 className="text-white text-center text-4xl font-bold absolute z-40">
+          SERVICES
+        </h1>
+        <img src={service} className="h-full w-full object-contain" alt="..." />
+      </div>
+      <div className="w-[90%] lg:w-[95%] xl:w-[86%] mx-auto py-20">
+        <div className="my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {data.map((item) => (
+            <div
+              key={item.id}
+              className="w-full rounded-b-lg min-h-[300px] border-t-8 border-darkBlue py-6 services-box-shadow md:transition-transform duration-300 hover:scale-105 grid gap-1"
+            >
+              <div className=" w-100 flex justify-center">
+                <img
+                  src={item.icon}
+                  className=" w-[92px] h-[92px] object-contain"
+                  alt="..."
+                />
+              </div>
+              <div className=" px-4 flex flex-col justify-center">
+                <h5 className="text-lg font-bold text-center text-darkBlue">
+                  {item.title}
+                </h5>
+                {item.list && (
+                  <ul
+                    className={` ${
+                      isExpanded ? "max-h-[500px]" : "max-h-[100px]"
+                    }  overflow-hidden transition-max-height duration-300 ease-in-out mt-1 text-base w-[244px] mx-auto text-darkBlue`}
+                  >
+                    {item.list.slice(0, displayCount).map((point, index) => (
+                      <li key={index} className="flex items-center space-x-3">
+                        <AiOutlineCheck className="text-orangePeel" />
+                        <span>{point.pointList}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {displayCount < data.length ? (
+                  <div className="flex justify-center mt-4">
+                    <span
+                      onClick={handleShowMore}
+                      className="text-linkBlue text-lg hover:shadow-sm cursor-pointer font-poppins font-semibold"
+                    >
+                      See all features
+                    </span>
+                  </div>
+                ) : (
+                  <div className="flex justify-center mt-4">
+                    <span
+                      onClick={handleShowLess}
+                      className="text-linkBlue text-lg hover:shadow-sm cursor-pointer font-poppins font-semibold"
+                    >
+                      See less features
+                    </span>
+                  </div>
+                )}
+              </div>
             </div>
-        </div>        
+          ))}
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;
