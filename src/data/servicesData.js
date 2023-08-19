@@ -1,4 +1,6 @@
-import Drone from "../assets/icons/drone.svg";
+import mobileApp from "../assets/icons/mobile-app.svg";
+import webApp from "../assets/icons/web-app.svg";
+import devOps from "../assets/icons/devops.svg";
 import smartCity from "../assets/icons/smart-city.svg";
 import cctv from "../assets/icons/cctv.svg";
 import security from "../assets/icons/security.svg";
@@ -8,14 +10,8 @@ import emailNotification from "../assets/icons/email-notification.svg";
 import smsNotification from "../assets/icons/sms-notification.svg";
 import socialMedia from "../assets/icons/social-media.svg";
 import apiDevelopment from "../assets/icons/api-development.svg";
-import mobileApp from "../assets/icons/mobile-app.svg";
 import marketing from "../assets/icons/marketing.svg";
 import callCenter from "../assets/icons/call-center.svg";
-import cctvPoster from "../assets/images/cctv-poster.svg";
-import securityPoster from "../assets/images/security-poster.svg";
-import vehiclePoster from "../assets/images/vehicle-poster.svg";
-import ecommercePoster from "../assets/images/ecommerce-poster.svg";
-import emailPoster from "../assets/images/email-poster.svg";
 
 export const ServicesData = [
   {
@@ -38,7 +34,7 @@ export const ServicesData = [
   },
   {
     id: "2",
-    icon: Drone,
+    icon: webApp,
     title: "Web Application",
     list: [
       { pointList: "Web Applications." },
@@ -74,27 +70,25 @@ export const ServicesData = [
   },
   {
     id: "4",
-    icon: cctv,
-    poster: cctvPoster,
-    title: "CCTV Planning & Implementation",
+    icon: devOps,
+    title: "DevOps",
     list: [
-      { pointList: "CCTV prevents crimes." },
-      { pointList: "Continuous recording, access." },
-      { pointList: "Property & employee safety." },
-      { pointList: "Reduces crime rates." },
-      { pointList: "Effective against vehicle crime." },
-      { pointList: "Plate detection." },
-      { pointList: "Smart city surveillance." },
-      { pointList: "Observes suspicious activity." },
-      { pointList: "Integrated security." },
-      { pointList: "24/7 asset protection." },
+      { pointList: "CI/CD Pipelines." },
+      { pointList: "Automation Tools." },
+      { pointList: "Infrastructure Management." },
+      { pointList: "Release Orchestration." },
+      { pointList: "Cloud Deployment." },
+      { pointList: "Monitoring Setup." },
+      { pointList: "Configuration Management." },
+      { pointList: "Security Integration." },
+      { pointList: "Performance Tuning." },
+      { pointList: "Collaboration Platforms." },
     ],
     url: "#",
   },
   {
     id: "5",
     icon: security,
-    poster: securityPoster,
     title: "Security Services (Guards & Escorts)",
     list: [
       { pointList: "Ensure safety." },
@@ -113,7 +107,6 @@ export const ServicesData = [
   {
     id: "6",
     icon: vehicle,
-    poster: vehiclePoster,
     title: "Vehicle Tracking, Fleet & Eqpt Monitoring",
     list: [
       { pointList: "Monitor Usage." },
@@ -132,7 +125,6 @@ export const ServicesData = [
   {
     id: "7",
     icon: ecommerce,
-    poster: ecommercePoster,
     title: "E Commerce Integration",
     list: [
       { pointList: "Data Transfer." },
@@ -151,7 +143,6 @@ export const ServicesData = [
   {
     id: "8",
     icon: emailNotification,
-    poster: emailPoster,
     title: "Email Notification Integration",
     list: [
       { pointList: "Information Updates." },
@@ -258,4 +249,22 @@ export const ServicesData = [
     ],
     url: "#",
   },
+  {
+    id: "14",
+    icon: cctv,
+    title: "CCTV Planning & Implementation",
+    list: [
+      { pointList: "CCTV prevents crimes." },
+      { pointList: "Continuous recording, access." },
+      { pointList: "Property & employee safety." },
+      { pointList: "Reduces crime rates." },
+      { pointList: "Effective against vehicle crime." },
+      { pointList: "Plate detection." },
+      { pointList: "Smart city surveillance." },
+      { pointList: "Observes suspicious activity." },
+      { pointList: "Integrated security." },
+      { pointList: "24/7 asset protection." },
+    ],
+    url: "#",
+  }
 ];
