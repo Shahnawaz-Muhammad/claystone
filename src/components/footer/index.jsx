@@ -27,50 +27,26 @@ const Footer = () => {
   const exploreData = [
     {
       link: "about us",
-      href: "#",
+      href: "/about",
     },
     {
       link: "services",
-      href: "#",
+      href: "/services",
     },
-    {
-      link: "pricing",
-      href: "#",
-    },
-    {
-      link: "blog",
-      href: "#",
-    },
+    
     {
       link: "contact",
-      href: "#",
+      href: "/contact",
     },
   ];
 
-  const contactData = [
-    {
-      link: "email",
-      href: "#",
-    },
-    {
-      link: "phone",
-      href: "#",
-    },
-    {
-      link: "address",
-      href: "#",
-    },
-    {
-      link: "social media",
-      href: "#",
-    },
-  ];
+  
   return (
     <div className="bg-darkBlue">
       <div className="w-[90%] lg:w-[95%] xl:w-[86%] mx-auto py-20">
         <div className="grid gap-20  overflow-hidden">
           <div className="grid grid-cols-12 gap-8 lg:gap-4">
-            <div className="col-span-12 lg:col-span-4">
+            <div className="col-span-12 lg:col-span-5">
               <div className="grid gap-10">
                 <img
                   src={claystonetextLogo}
@@ -91,7 +67,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-span-12 sm:col-span-4 lg:col-span-2">
+            <div className="col-span-12 sm:col-span-4 lg:col-span-3">
               <div>
                 <div className="grid gap-4">
                   <h6 className="font-poppins font-semibold text-[20px] text-white leading-[30px]">
@@ -113,7 +89,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-span-12 sm:col-span-4 lg:col-span-2">
+            {/* <div className="col-span-12 sm:col-span-4 lg:col-span-2">
               <div>
                 <div className="grid gap-4">
                   <h6 className="font-poppins font-semibold text-[20px] text-white leading-[30px]">
@@ -135,7 +111,7 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="col-span-12 lg:col-span-4">
               <h6 className="font-poppins font-semibold text-[20px] text-white leading-[30px]">
@@ -147,13 +123,13 @@ const Footer = () => {
                 anytime!
               </p>
               <div className="relative pt-[43px]">
-                <div className="bg-darkBlue border border-lightBlue rounded-[5px] w-[100%] pl-10 h-20 flex items-center">
-                  <div className="absolute inset-y-0 right-6 top-11 flex items-center h-20">
-                    <img src={arrowIcon} />
+                <div className="bg-darkBlue border border-lightBlue rounded-[5px] w-[100%] pl-5 h-12 flex items-center">
+                  <div className="absolute inset-y-0 right-4 top-7 flex items-center h-20">
+                    <img src={arrowIcon} className="w-6"/>
                   </div>
                   <input
                     type="text"
-                    className="text-[20px] text-white leading-[30px] bg-darkBlue focus:outline-none w-[75%]"
+                    className="text-[20px] text-white leading-[30px] bg-darkBlue focus:outline-none w-[80%]"
                     placeholder="Enter Your Email Address ..."
                   />
                 </div>
@@ -164,7 +140,7 @@ const Footer = () => {
             <hr className=" border-white " />
             <div className="md:flex md:justify-between space-y-4 md:space-y-0">
               <p className="font-poppins text-[16px] leading-[26px] text-white">
-                Copyright © 2023 for WaveNet. All rights reserved.
+                Copyright © 2023 for Claystone Tech. All rights reserved.
               </p>
               <div className="flex">
                 <p className="font-poppins text-[16px] leading-[26px] text-white">

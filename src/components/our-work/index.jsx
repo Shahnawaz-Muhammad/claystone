@@ -9,9 +9,9 @@ function OurWork() {
   const headingRef = useRef(null);
   const contentRef = useRef(null);
 
-  const targetSatisfiedClients = 98;
-  const targetSuccessfulProjects = 500;
-  const targetHandledCountries = 35;
+  const targetSatisfiedClients = 95;
+  const targetSuccessfulProjects = 200;
+  const targetHandledCountries = 100;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,11 +37,11 @@ function OurWork() {
       const { top: contentTop } = contentElement.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      if (headingTop  < windowHeight * 0.8) {
+      if (headingTop < windowHeight * 0.8) {
         controls.start("visible");
       }
 
-      if (contentTop < windowHeight * 0.8) { 
+      if (contentTop < windowHeight * 0.8) {
         controls.start('visible');
       }
     };
@@ -83,9 +83,9 @@ function OurWork() {
             ref={headingRef}
             className="text-5xl md:text-6xl xl:text-8xl font-bold mb-4 font-space-grotesk text-darkBlue"
           >
-            We believe that{" "}
+            We believe, that well crafted{" "}
             <span className="italic font-light font-poppins">technology</span>{" "}
-            can <span className="text-outline text-lightBlue">change</span> the
+            can <span className="text-outline text-lightBlue">tranform</span> the
             world.
           </motion.h1>
           <motion.div
@@ -95,10 +95,7 @@ function OurWork() {
             animate={controls}
           >
             <p className="mt-4 max-w-5xl text-lg text-darkBlue">
-              That's why we're committed to delivering innovative IT solutions
-              to businesses of all sizes. Our team of experienced professionals
-              is dedicated to helping you achieve your goals and thrive in a
-              rapidly evolving digital landscape.
+              Hence, our steadfast commitment lies in furnishing groundbreaking IT solutions to businesses of every scale. Our seasoned professionals are devoted to propelling your goals and ensuring success within a swiftly evolving digital realm.
             </p>
           </motion.div>
         </motion.div>
@@ -131,7 +128,7 @@ function OurWork() {
             <h1 className=" text-4xl md:text-5xl xl:text-6xl mr-4">
               {handledCountries}+
             </h1>
-            <p className="">Handled Countries</p>
+            <p className="">Customers</p>
           </div>
         </motion.div>
       </div>

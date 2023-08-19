@@ -59,25 +59,25 @@ const WhyChooseUs = () => {
       img: <ExpertiseAnimation />,
       feature: "expertise",
       description:
-        "Our team of experienced experts have the knowledge and expertise to deliver innovative IT solutions that meet your unique needs.",
+        "Our adept team of experts possesses the requisite knowledge and skills to provide ingenious IT solutions tailored to your distinct requirements.",
     },
     {
       img: <TechnolgyAnimation />,
       feature: "technology",
       description:
-        "We stay up to date with the latest trends and technologies in the IT industry, so you can get the most advanced solutions available.",
+        "We remain current with the latest IT industry trends and technologies, ensuring you access the most advanced solutions.",
     },
     {
       img: <SolutionAnimation />,
       feature: "solutions",
       description:
-        "We take a personalized approach to every project, working closely with you to understand your business and create solutions.",
+        "We adopt a personalized approach to each project, closely collaborating with you to comprehend your business and craft tailored solutions.",
     },
     {
       img: <ResultAnimation />,
       feature: "results",
       description:
-        "Our track record speaks for itself – we've helped businesses of all sizes and industries achieve their goals with our IT solutions.",
+        "Our proven track record speaks volumes – businesses across various sizes and industries have achieved their goals through our impactful IT solutions.",
     },
   ];
 
@@ -113,7 +113,7 @@ const WhyChooseUs = () => {
                 <h6 className="text-[32px] leading-10 text font-semibold pt-16 uppercase">
                   {data.feature}
                 </h6>
-                <p className="text-[20] leading-[30px] pt-4">
+                <p className="text-[20] leading-[30px] pt-4 ">
                   {data.description}
                 </p>
               </div>

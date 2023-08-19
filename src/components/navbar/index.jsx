@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const arr = [
     { id: 1, name: "HOME", url: "/" },
-    { id: 2, name: "ABOUT US", url: "#" },
+    // { id: 2, name: "ABOUT US", url: "/about" },
     { id: 3, name: "SERVICES", url: "/services" },
     // { id: 4, name: "BLOG", url: "/blog" },
     { id: 4, name: "CONTACT", url: "/contact" },

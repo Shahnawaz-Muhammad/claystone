@@ -5,6 +5,8 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Contact from "./pages/contact";
 import Services from "./pages/services";
 import Footer from "./components/footer";
+import { ServicesData } from "./data/servicesData";
+
 import About from "./pages/about";
 import { motion, AnimatePresence } from "framer-motion";
 
