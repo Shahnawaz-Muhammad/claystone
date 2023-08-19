@@ -22,9 +22,9 @@ const Navbar = () => {
 
   return (
     <div className="bg-darkBlue flex justify-center z-30">
-      <div className="w-[90%] lg:w-[95%] xl:w-[86%]  flex items-center  justify-between py-5 ">
-        <div className="w-full flex  items-center">
-          <Link to="/" state={{ direction: "right" }}>
+      <div className="w-[90%] lg:w-[95%] xl:w-[86%]  flex items-center  justify-between h-[87px] ">
+        <div>
+          <Link to="/">
             {" "}
             <img
               src={claystonelogo}

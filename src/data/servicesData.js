@@ -1,7 +1,7 @@
 import mobileApp from "../assets/icons/mobile-app.svg";
 import webApp from "../assets/icons/web-app.svg";
 import devOps from "../assets/icons/devops.svg";
-import smartCity from "../assets/icons/smart-city.svg";
+import desktop from "../assets/icons/desktop.svg";
 import cctv from "../assets/icons/cctv.svg";
 import security from "../assets/icons/security.svg";
 import vehicle from "../assets/icons/vehicle.svg";
@@ -52,7 +52,7 @@ export const ServicesData = [
   },
   {
     id: "3",
-    icon: smartCity,
+    icon: desktop,
     title: "Desktop Application",
     list: [
       { pointList: "Desktop Applications." },
