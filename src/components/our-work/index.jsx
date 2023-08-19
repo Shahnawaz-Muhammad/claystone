@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import longArrow from "../../assets/icons/Arrow Icon.svg";
+import { Link } from "react-router-dom";
+
 
 function OurWork() {
   const [satisfiedClients, setSatisfiedClients] = useState(0);
@@ -131,6 +134,11 @@ function OurWork() {
             <p className="">Customers</p>
           </div>
         </motion.div>
+      </div>
+      <div className="w-full flex justify-center">
+        <Link to="/services" className="mt-12 bg-darkBlue border border-white px-6 py-3 md:px-10 md:py-5 rounded-lg flex gap-3 md:gap-5 items-center z-50">
+          Learn More <img src={longArrow} alt="long arrow" />
+        </Link>
       </div>
     </div>
   );

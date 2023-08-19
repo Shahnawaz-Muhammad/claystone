@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import arrowicon from "../../assets/icons/Arrow Icon-2.png";
 import shortArrowIcon from "../../assets/icons/Arrow Icon short.png";
+import {MdArrowUpward} from "react-icons/md"
 import cyberpic from "../../assets/cyber.jpg";
 import { useAnimation, motion } from "framer-motion";
 
@@ -144,13 +145,16 @@ const Services = () => {
                   <p className="text-darkBlue mt-4 font-medium">
                     {data.content}
                   </p>
-                  <img src={shortArrowIcon} className="mt-5 w-16"></img>
+                  {/* <img src={shortArrowIcon} className="mt-5 w-16"></img> */}
+                  <MdArrowUpward className="text-5xl"/>
                 </div>
-                <div className="  h-52 w-[100%] md:w-[45%] ">
+                <div className="  h-52 w-[100%] md:w-[45%] flex justify-center items-center">
+                  <div className="w-[40%] p-5 h-full rounded-full ">
                   <img
                     src={cyberpic}
-                    className="w-full h-full pt-5 md:pt-0 rounded-lg"
+                    className="w-full h-full  bg-contain  rounded-full"
                   ></img>
+                  </div>
                 </div>
               </div>
             )}

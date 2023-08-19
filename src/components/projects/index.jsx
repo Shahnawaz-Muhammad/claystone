@@ -99,8 +99,7 @@ const Projects = () => {
           >
             As an IT company, we pride ourselves on delivering customized
             solutions that meet our clients' unique needs. Our projects
-            highlight our expertise in web & mobile development, cloud
-            computing, cybersecurity, and digital marketing.
+            highlight our expertise in web & mobile development, desktop application, devOps, and digital marketing.
           </motion.p>
         </div>
 
@@ -141,9 +140,9 @@ const Projects = () => {
             </div>
           </div> */}
           <div className={`w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-orangePeel p-5 md:p-20 text-center flex flex-col gap-8 container-shadow ${showShadow ? 'shadow-visible-orange' : 'shadow-hidden'}`}>
-            <div className="flex flex-col gap-5 pt-10">
+            <div className="flex flex-col gap-5 pt-10 items-center">
               <div>
-                <img src={project2} alt=""  className="rounded-2xl"/>
+                <img src={project2} alt=""  className="w-full rounded-2xl"/>
               </div>
               <p>2023</p>
               <h3 className="text-5xl font-space-grotesk font-semibold">
