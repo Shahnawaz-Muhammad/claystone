@@ -6,8 +6,8 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css/navigation";
 import "swiper/css";
 
-import person1 from "../../assets/images/tom-johnson-rev.png";
-import person2 from "../../assets/images/john-dov-rev.png";
+import person1 from "../../assets/images/hassan-qureshi.png";
+import person2 from "../../assets/images/abdullah-ashvani.png";
 import samsung from "../../assets/images/samsung.png";
 import google from "../../assets/images/google.png";
 import amazon from "../../assets/images/amazon.png";
@@ -115,17 +115,14 @@ const ClientsStories = () => {
               Amazing!
             </h1>
             <p>
-              “WaveNet's cybersecurity solution gave us the peace of mind we
-              needed to focus on our business. They took the time to understand
-              our unique needs and created a solution that protected our
-              sensitive data and ensured compliance with industry regulations.”
+              “Claystone Tech provided the assurance we required to concentrate on our core business. They meticulously grasped our distinct requirements, fashioning a safeguarding solution for our sensitive data while upholding industry regulatory compliance.”
             </p>
             <div className="flex justify-end items-center gap-5">
               <div className="flex flex-col justify-between text-right">
-                <h3>Tom Johnson</h3>
-                <p>CIO of Mika Medika Healthcare</p>
+                <h3>Hassan Qureshi</h3>
+                <p>HOD IT, Madina Mac</p>
               </div>
-              <img src={person1} alt="review" className="w-16" />
+              <img src={person1} alt="review" className="w-16 rounded-full" />
             </div>
           </div>
 
@@ -136,17 +133,14 @@ const ClientsStories = () => {
               Best Service
             </h1>
             <p>
-              “We were struggling to keep up with the demands of our growing
-              business until we partnered with WaveNet. Their custom software
-              development solution has helped us streamline our operations and
-              improve efficiency, saving us time and money.”
+              “Juggling the demands of our expanding business was a challenge until our collaboration with Claystone Tech. Their tailored software development solution has effectively streamlined our operations, enhancing efficiency, and delivering notable time and cost savings.”
             </p>
             <div className="flex justify-end items-center gap-5">
               <div className="flex flex-col justify-between text-right">
-                <h3>John Doe</h3>
-                <p>COO of DEF Manufacturing</p>
+                <h3>Abdullah Ashvani</h3>
+                <p>QA, Diamond Excellency</p>
               </div>
-              <img src={person2} alt="review" className="w-16" />
+              <img src={person2} alt="review" className="w-16 rounded-full" />
             </div>
           </div>
         </motion.div>
