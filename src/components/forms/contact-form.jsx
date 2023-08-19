@@ -1,60 +1,47 @@
 import React, { useState } from "react";
-import 'react-toastify/dist/ReactToastify.css';
-import {  addDoc, collection} from "firebase/firestore"; 
-import db from '../../firebaseConfig';
+import "react-toastify/dist/ReactToastify.css";
+import { addDoc, collection } from "firebase/firestore";
+import db from "../../firebaseConfig";
 import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
+
 const ContactForm = ({ openContactForm, setOpenContactForm }) => {
-  const [inputValue, setInputValue] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({ mode: "onBlur" });
 
-  const handleInputValues = (event) => {
-    const value = event.target.value;
-    setInputValue({
-      ...inputValue,
-      [event.target.name]: value,
-    });
-  };
-
-  const handleFormSubmit = async(e) => {
-    e.preventDefault();
-    if(inputValue.firstName!==""&&inputValue.lastName!==""&&inputValue.email!==""&&inputValue.phone!==""&&inputValue.message!==""){
-
-    
-     
+  const onSubmit = async (data) => {
+    if (
+      data.firstName !== "" &&
+      data.lastName !== "" &&
+      data.email !== "" &&
+      data.phone !== "" &&
+      data.message !== ""
+    ) {
       await addDoc(collection(db, "ContactForm"), {
-        firstName: inputValue.firstName,
-        lastName: inputValue.lastName,
-        email: inputValue.email,
-        phone: inputValue.phone,
-        message: inputValue.message,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phone: data.phone,
+        message: data.message,
       });
-      toast.success('Data added successfully!', {
+      toast.success("Data added successfully!", {
         position: toast.POSITION.TOP_RIGHT,
-        autoClose: 1000, 
+        autoClose: 1000,
       });
 
-      setInputValue({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-      setOpenContactForm(false)
+      reset();
+
+      setOpenContactForm(false);
     } else {
-      toast.error('An error occurred. Please try again.', {
+      toast.error("An error occurred. Please try again.", {
         position: toast.POSITION.TOP_RIGHT,
-        autoClose: 1000, 
+        autoClose: 1000,
       });
     }
-
-
-   
   };
 
   return (
@@ -94,11 +81,11 @@ const ContactForm = ({ openContactForm, setOpenContactForm }) => {
               Send your Queries
             </h3>
 
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <label
-                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold "
                     htmlFor="firstName"
                   >
                     First Name
@@ -108,33 +95,56 @@ const ContactForm = ({ openContactForm, setOpenContactForm }) => {
                     id="firstName"
                     name="firstName"
                     type="text"
-                    value={inputValue.firstName}
-                    onChange={handleInputValues}
+                    {...register("firstName", {
+                      required: "Firstname is required",
+                      minLength: { value: 3, message: "Invalid Firstname" },
+                      pattern: {
+                        value: /^[A-Za-z]+$/i,
+                        message: "Firstname should only contain alphabets",
+                      },
+                    })}
                     placeholder="Firstname"
                   />
+
+                  {errors.firstName && (
+                    <span className=" absolute -mt-3  text-red text-sm">
+                      {errors.firstName?.message}
+                    </span>
+                  )}
                 </div>
                 <div className="w-full md:w-1/2 px-3">
                   <label
-                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold "
                     htmlFor="lastName"
                   >
                     Last Name
                   </label>
                   <input
-                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                     id="lastName"
                     name="lastName"
                     type="text"
-                    value={inputValue.lastName}
-                    onChange={handleInputValues}
+                    {...register("lastName", {
+                      required: "Lastname is required",
+                      minLength: { value: 3, message: "Invalid Lastname" },
+                      pattern: {
+                        value: /^[A-Za-z]+$/i,
+                        message: "Lastname should only contain alphabets",
+                      },
+                    })}
                     placeholder="Lastname"
                   />
+                  {errors.lastName && (
+                    <span className=" absolute -mt-3  text-red text-sm">
+                      {errors.lastName?.message}
+                    </span>
+                  )}
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full md:w-1/2 px-3">
+                <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <label
-                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold "
                     htmlFor="email"
                   >
                     Email
@@ -144,14 +154,24 @@ const ContactForm = ({ openContactForm, setOpenContactForm }) => {
                     id="email"
                     name="email"
                     type="email"
-                    value={inputValue.email}
-                    onChange={handleInputValues}
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "invalid email address",
+                      },
+                    })}
                     placeholder="Email"
                   />
+                  {errors.email && (
+                    <span className=" absolute   text-red text-sm">
+                      {errors.email?.message}
+                    </span>
+                  )}
                 </div>
                 <div className="w-full md:w-1/2 px-3">
                   <label
-                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold "
                     htmlFor="phone"
                   >
                     Phone
@@ -161,30 +181,55 @@ const ContactForm = ({ openContactForm, setOpenContactForm }) => {
                     id="phone"
                     type="number"
                     name="phone"
-                    value={inputValue.phone}
-                    onChange={handleInputValues}
+                    {...register("phone", {
+                      required: "Phone Number is required",
+                      minLength: {
+                        value: 10,
+                        message: "Number cannot be less than 10",
+                      },
+
+                      pattern: {
+                        value: /^[0-9]+$/,
+                        message: "Invalid Phone Number",
+                      },
+                    })}
                     placeholder="Phone Number"
                   />
+                  {errors.phone && (
+                    <span className=" absolute   text-red text-sm">
+                      {errors.phone?.message}
+                    </span>
+                  )}
                 </div>
               </div>
-              <div className="flex flex-wrap -mx-3 mb-6">
+              <div className="flex flex-wrap -mx-3 mb-9">
                 <div className="w-full px-3">
                   <label
-                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold "
                     htmlFor="message"
                   >
                     Message
                   </label>
                   <textarea
                     rows={4}
-                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4  leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="message"
                     name="message"
                     type="text"
-                    value={inputValue.message}
-                    onChange={handleInputValues}
+                    {...register("message", {
+                      required: "Message is required",
+                      minLength: {
+                        value: 20,
+                        message: "Message should be atleast 20 characters",
+                      },
+                    })}
                     placeholder="Message"
                   />
+                  {errors.message && (
+                    <span className=" absolute   text-red text-sm">
+                      {errors.message?.message}
+                    </span>
+                  )}
                   {/* <p className="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> */}
                 </div>
               </div>
