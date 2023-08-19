@@ -1,4 +1,4 @@
-import claystonetextLogo from "../../assets/claystone-text-logo.png";
+import claystonetextLogo from "../../assets/claystone-logo.png";
 import instagramIcon from "../../assets/icons/instagram-icon.png";
 import facebookIcon from "../../assets/icons/facebook-icon.png";
 import twitterIcon from "../../assets/icons/twitter-icon.png";

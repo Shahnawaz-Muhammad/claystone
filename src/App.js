@@ -42,7 +42,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
+            <Route path="/services" element={<Services data={ServicesData}/>} />
           </Routes>
       <Footer />
         </motion.div>
