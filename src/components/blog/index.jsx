@@ -71,21 +71,21 @@ const Blog = () => {
   const blogData = [
     {
       name: "tech",
-      blog: "Why Cloud Computing is Essential for Your Business in Year 2023",
-      date: "01.03",
+      blog: "Why Machine Learning based UI is essential for your business in 2023",
+      date: "19.08",
       unique: false,
     },
     {
       name: "TIPS",
-      blog: "How to Protect Business from Cybersecurity Threats",
-      date: "12 April 2023",
-      writer: "TeamWaveNet",
+      blog: "How to Protect your Online Footprint from data brokers",
+      date: "18 October 2023",
+      writer: "Claystone Tech",
       unique: true,
     },
     {
       name: "review",
-      blog: "5 Ways Software Developer Can Boost Your Business Quicker Than Ever",
-      date: "20.05",
+      blog: "Ways, Software Developers can boost your business quicker than ever",
+      date: "03:40 PM",
       unique: false,
     },
   ];
@@ -111,9 +111,7 @@ const Blog = () => {
               animate={descControls}
               className="font-poppins text-darkBlue text-[20px] text-center leading-[30px] lg:w-[896px] lg:mx-auto"
             >
-              Stay up to date with the latest trends and insights in technology
-              with our informative blog. From industry news to expert tips,
-              we've got you covered.
+              Stay current on technology's latest trends and insights through our informative blog. Covering industry news and expert tips, we're your source for staying informed.
             </motion.p>
           </div>
 
@@ -138,7 +136,7 @@ const Blog = () => {
                       {data.date} | {data.writer}
                     </p>
                     <button className="bg-orangePeel shadow-orangePeel shadow-md capitalize w-[214px] h-12 rounded-[10px]">
-                      read more
+                      coming soon . . .
                     </button>
                   </div>
                 ) : (
@@ -162,11 +160,11 @@ const Blog = () => {
             ))}
           </motion.div>
 
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <button className="border border-darkBlue px-6 py-3 md:px-10 md:py-5 rounded-lg flex gap-3 md:gap-5 items-center">
               Explore Now <img src={longArrow} alt="long arrow" />
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
