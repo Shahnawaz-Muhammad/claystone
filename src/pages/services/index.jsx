@@ -1,42 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import service from "../Images/service.png";
-import { motion, useAnimation } from "framer-motion";
 import { AiOutlineCheck } from "react-icons/ai";
 
 const Services = ({ data }) => {
-  const gridControls = useAnimation();
-  const gridRef = useRef(null);
-
-  const [displayCount, setDisplayCount] = useState(3); // Initial number of items to display
+  const [displayCount, setDisplayCount] = useState(3);
   const [isExpanded, setIsExpanded] = useState(false);
-
-  useEffect(() => {
-    const gridElement = gridRef.current;
-
-    const handleScroll = () => {
-      const { top: gridTop } = gridElement.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      if (gridTop < windowHeight * 3.5) {
-        gridControls.start("visible");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [gridControls]);
-
-  const gridItemVariants = {
-    hidden: { opacity: 0, y: 80 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
 
   const handleShowMore = () => {
     setDisplayCount(data.length);
@@ -52,18 +20,14 @@ const Services = ({ data }) => {
         <h1 className="text-white text-center text-4xl font-bold absolute z-40">
           SERVICES
         </h1>
-        <img src={service} className="h-64 w-full" alt="..." />
+        <img src={service} className="h-full w-full object-contain" alt="..." />
       </div>
       <div className="w-[90%] lg:w-[95%] xl:w-[86%] mx-auto">
         <div className="my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {data.map((item, index) => (
-            <motion.div
-              ref={gridRef}
-              initial="hidden"
-              animate={gridControls}
-              variants={gridItemVariants}
+            <div
               key={item.id}
-              className="w-full min-h-[300px] border-t-8 border-darkBlue py-6 services-box-shadow md:transition-transform duration-300 hover:scale-105 grid gap-1"
+              className="w-full rounded-b-lg min-h-[300px] border-t-8 border-darkBlue py-6 services-box-shadow md:transition-transform duration-300 hover:scale-105 grid gap-1"
             >
               <div className=" w-100 flex justify-center">
                 <img
@@ -94,7 +58,7 @@ const Services = ({ data }) => {
                   <div className="flex justify-center mt-4">
                     <span
                       onClick={handleShowMore}
-                      className=" text-linkBlue text-lg hover:shadow-sm cursor-pointer font-poppins font-semibold"
+                      className="text-linkBlue text-lg hover:shadow-sm cursor-pointer font-poppins font-semibold"
                     >
                       See all features
                     </span>
@@ -103,14 +67,14 @@ const Services = ({ data }) => {
                   <div className="flex justify-center mt-4">
                     <span
                       onClick={handleShowLess}
-                      className=" text-linkBlue text-lg hover:shadow-sm cursor-pointer font-poppins font-semibold"
+                      className="text-linkBlue text-lg hover:shadow-sm cursor-pointer font-poppins font-semibold"
                     >
                       See less features
                     </span>
                   </div>
                 )}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
