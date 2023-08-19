@@ -24,7 +24,7 @@ const Services = ({ data }) => {
       </div>
       <div className="w-[90%] lg:w-[95%] xl:w-[86%] mx-auto py-20">
         <div className="my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {data.map((item, index) => (
+          {data.map((item) => (
             <div
               key={item.id}
               className="w-full rounded-b-lg min-h-[300px] border-t-8 border-darkBlue py-6 services-box-shadow md:transition-transform duration-300 hover:scale-105 grid gap-1"
