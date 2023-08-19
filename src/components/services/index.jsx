@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import arrowicon from "../../assets/icons/Arrow Icon-2.png";
 import shortArrowIcon from "../../assets/icons/Arrow Icon short.png";
+import {MdArrowUpward} from "react-icons/md"
 import cyberpic from "../../assets/cyber.jpg";
 import { useAnimation, motion } from "framer-motion";
 
@@ -56,25 +57,31 @@ const Services = () => {
       id: 1,
       services: "Web Development",
       content:
-        "service provides advanced protection for your data and systems against potential threats and attacks, ensuring your business operates securely and efficiently.",
+        "Claystone Tech offers comprehensive web development services, crafting dynamic and responsive online solutions that cater to diverse business needs, from e-commerce platforms to interactive web applications, ensuring a seamless and engaging digital presence.",
     },
     {
       id: 2,
       services: "Mobile Development",
       content:
-        "Our cyber security service provides advanced protection for your data and systems against potential threats and attacks, ensuring your business operates securely and efficiently.",
+        "Claystone Tech delivers comprehensive mobile application development services, creating intuitive and high-performance apps across iOS and Android platforms, tailored to various business requirements, and ensuring optimal user experiences and functionality.",
     },
     {
       id: 3,
-      services: "Cyber Security",
+      services: "DevOps",
       content:
-        "Our cyber security service provides advanced protection for your data and systems against potential threats and attacks, ensuring your business operates securely and efficiently.",
+        "Claystone Tech provides end-to-end DevOps services, streamlining software development and IT operations to enhance collaboration, automate processes, and accelerate delivery, resulting in efficient, continuous, and high-quality software deployment and management.",
     },
     {
       id: 4,
+      services: "Desktop Application",
+      content:
+        "Claystone Tech specializes in desktop application development, creating robust and user-friendly software solutions tailored to specific business needs, ensuring seamless performance and functionality across various desktop platforms for enhanced user experiences.",
+    },
+    {
+      id: 5,
       services: "Digital Marketing",
       content:
-        "Our cyber security service provides advanced protection for your data and systems against potential threats and attacks, ensuring your business operates securely and efficiently.",
+        "Claystone Tech excels in digital marketing services, strategically leveraging online channels to amplify brand visibility, engage target audiences, and drive measurable results, encompassing SEO, social media, content, and analytics for an impactful and data-driven online presence.",
     },
   ];
 
@@ -138,13 +145,16 @@ const Services = () => {
                   <p className="text-darkBlue mt-4 font-medium">
                     {data.content}
                   </p>
-                  <img src={shortArrowIcon} className="mt-5 w-16"></img>
+                  {/* <img src={shortArrowIcon} className="mt-5 w-16"></img> */}
+                  <MdArrowUpward className="text-5xl"/>
                 </div>
-                <div className="  h-52 w-[100%] md:w-[45%] ">
+                <div className="  h-52 w-[100%] md:w-[45%] flex justify-center items-center">
+                  <div className="w-[40%] p-5 h-full rounded-full ">
                   <img
                     src={cyberpic}
-                    className="w-full h-full pt-5 md:pt-0 rounded-lg"
+                    className="w-full h-full  bg-contain  rounded-full"
                   ></img>
+                  </div>
                 </div>
               </div>
             )}

@@ -1,25 +1,31 @@
-import claystonetextLogo from "../../assets/claystone-text-logo.png";
+import claystonetextLogo from "../../assets/claystone-logo.png";
 import instagramIcon from "../../assets/icons/instagram-icon.png";
 import facebookIcon from "../../assets/icons/facebook-icon.png";
 import twitterIcon from "../../assets/icons/twitter-icon.png";
 import arrowIcon from "../../assets/icons/arrow-icon.png";
 import ItSolutions from "../itSolutions";
+import { BsLinkedin } from "react-icons/bs"
+import { toast } from "react-toastify";
+import { useState } from "react";
 
 const Footer = () => {
+  const [newsletterInput, setNewsletterInput] = useState("")
   const socialIcons = [
     {
-      icon: instagramIcon,
-      href: "#",
-      alt: "instagram icon",
+      icon: <BsLinkedin
+        className="w-[32px] h-[32px] object-contain text-white"
+      />,
+      href: "https://www.linkedin.com/in/clay-stone-287797264/",
+      alt: "Linkedin icon",
     },
     {
-      icon: facebookIcon,
-      href: "#",
+      iconLogo: facebookIcon,
+      href: "https://www.facebook.com/profile.php?id=100089568476616",
       alt: "facebook icon",
     },
     {
-      icon: twitterIcon,
-      href: "#",
+      iconLogo: twitterIcon,
+      href: "https://twitter.com/ClayStonePK",
       alt: "twitter icon",
     },
   ];
@@ -27,50 +33,43 @@ const Footer = () => {
   const exploreData = [
     {
       link: "about us",
-      href: "#",
+      href: "",
     },
     {
       link: "services",
-      href: "#",
+      href: "/services",
     },
-    {
-      link: "pricing",
-      href: "#",
-    },
-    {
-      link: "blog",
-      href: "#",
-    },
+
     {
       link: "contact",
-      href: "#",
+      href: "/contact",
     },
   ];
 
-  const contactData = [
-    {
-      link: "email",
-      href: "#",
-    },
-    {
-      link: "phone",
-      href: "#",
-    },
-    {
-      link: "address",
-      href: "#",
-    },
-    {
-      link: "social media",
-      href: "#",
-    },
-  ];
+
+  const handleNewsletterSubmit = () => {
+    // Get the email input value from your state or wherever it's stored
+    const email = newsletterInput;
+  
+    // Regular expression for email validation
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  
+    if (email === "") {
+      toast.error("Please enter an email address.");
+    } else if (!emailPattern.test(email)) {
+      toast.error("Please enter a valid email address.");
+    } else {
+      setNewsletterInput("")
+      toast.success("You Have Successfully Subscribed!");
+    }
+  }
+
   return (
     <div className="bg-darkBlue">
       <div className="w-[90%] lg:w-[95%] xl:w-[86%] mx-auto py-20">
         <div className="grid gap-20  overflow-hidden">
           <div className="grid grid-cols-12 gap-8 lg:gap-4">
-            <div className="col-span-12 lg:col-span-4">
+            <div className="col-span-12 lg:col-span-5">
               <div className="grid gap-10">
                 <img
                   src={claystonetextLogo}
@@ -79,19 +78,20 @@ const Footer = () => {
                 />
                 <div className="flex space-x-[64px]">
                   {socialIcons.map((icon, index) => (
-                    <a key={index} href={icon.href}>
-                      <img
-                        src={icon.icon}
+                    <a key={index} href={icon.href} target="_blank">
+                      {icon.icon ? icon.icon : <img
+                        src={icon.iconLogo}
                         className="w-[32px] h-[32px] object-contain"
                         alt={icon.alt}
-                      />
+                      />}
+                      {/* {icon.icon} */}
                     </a>
                   ))}
                 </div>
               </div>
             </div>
 
-            <div className="col-span-12 sm:col-span-4 lg:col-span-2">
+            <div className="col-span-12 sm:col-span-4 lg:col-span-3">
               <div>
                 <div className="grid gap-4">
                   <h6 className="font-poppins font-semibold text-[20px] text-white leading-[30px]">
@@ -113,7 +113,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-span-12 sm:col-span-4 lg:col-span-2">
+            {/* <div className="col-span-12 sm:col-span-4 lg:col-span-2">
               <div>
                 <div className="grid gap-4">
                   <h6 className="font-poppins font-semibold text-[20px] text-white leading-[30px]">
@@ -135,7 +135,7 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="col-span-12 lg:col-span-4">
               <h6 className="font-poppins font-semibold text-[20px] text-white leading-[30px]">
@@ -147,13 +147,16 @@ const Footer = () => {
                 anytime!
               </p>
               <div className="relative pt-[43px]">
-                <div className="bg-darkBlue border border-lightBlue rounded-[5px] w-[100%] pl-10 h-20 flex items-center">
-                  <div className="absolute inset-y-0 right-6 top-11 flex items-center h-20">
-                    <img src={arrowIcon} />
+                <div className="bg-darkBlue border border-lightBlue rounded-[5px] w-[100%] pl-5 h-12 flex items-center">
+                  <div className="absolute inset-y-0 right-4 top-7 flex items-center h-20">
+                    <button onClick={handleNewsletterSubmit}><img src={arrowIcon} className="w-6" /></button>
                   </div>
                   <input
-                    type="text"
-                    className="text-[20px] text-white leading-[30px] bg-darkBlue focus:outline-none w-[75%]"
+                    type="email"
+                    className="text-[20px] text-white leading-[30px] bg-darkBlue focus:outline-none w-[80%]"
+                    name="subscriptionEmail"
+                    value={newsletterInput}
+                    onChange={(e) => setNewsletterInput(e.target.value)}
                     placeholder="Enter Your Email Address ..."
                   />
                 </div>
@@ -164,7 +167,7 @@ const Footer = () => {
             <hr className=" border-white " />
             <div className="md:flex md:justify-between space-y-4 md:space-y-0">
               <p className="font-poppins text-[16px] leading-[26px] text-white">
-                Copyright © 2023 for WaveNet. All rights reserved.
+                Copyright © 2023 for Claystone Tech. All rights reserved.
               </p>
               <div className="flex">
                 <p className="font-poppins text-[16px] leading-[26px] text-white">

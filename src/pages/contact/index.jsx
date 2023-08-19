@@ -7,6 +7,7 @@ import ContactForm from "../../components/forms/contact-form";
 import LeadsForm from "../../components/forms/leads-form";
 import contactImg from "../../assets/images/contact-us.jpeg";
 import leadsImg from "../../assets/images/leads-2.jpg";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [openContactForm, setOpenContactForm] = useState(false);
@@ -16,11 +17,10 @@ const Contact = () => {
     setOpenContactForm(!openContactForm);
   };
 
-  const handleOpenLeadsForm  = () => {
-    setOpenLeadsForm(!openLeadsForm)
-  }
+  const handleOpenLeadsForm = () => {
+    setOpenLeadsForm(!openLeadsForm);
+  };
 
- 
   return (
     <div className="bg-darkBlue text-black py-20">
       <div className=" max-w-[100%] md:max-w-6xl mx-auto ">
@@ -29,7 +29,12 @@ const Contact = () => {
         </h1>
         <div className=" px-10 py-20 w-full">
           <div className="flex flex-col md:flex-row w-full gap-2 lg:gap-8">
-            <div className="w-full flex flex-col gap-3 py-10 px-6 shadow-lg bg-white text-darkBlue rounded-lg relative bottomBorder after:rounded-b-lg">
+            <motion.div
+              initial={{ opacity: 0, y: 100 }} // Initial animation state (starting from right)
+              animate={{ opacity: 1, y: 0 }} // Animation on page load
+              transition={{ duration: 0.5, delay: 0.4 }} // Animation duration
+              className="w-full flex flex-col gap-3 py-10 px-6 shadow-lg bg-white text-darkBlue rounded-lg relative bottomBorder after:rounded-b-lg"
+            >
               <h1 className="text-2xl font-semibold text-blue">We're here</h1>
               <p>Our door is always open for a good cup of tea</p>
               <div className="flex flex-col gap-1">
@@ -49,8 +54,13 @@ const Contact = () => {
                   </span>
                 </div>
               </div>
-            </div>
-            <div className="w-full flex flex-col gap-3 py-10 px-6 shadow-lg bg-white text-darkBlue rounded-lg relative bottomBorder after:rounded-b-lg">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 100 }} // Initial animation state (starting from right)
+              animate={{ opacity: 1, y: 0 }} // Animation on page load
+              transition={{ duration: 0.5, delay: 0.5 }} // Animation duration
+              className="w-full flex flex-col gap-3 py-10 px-6 shadow-lg bg-white text-darkBlue rounded-lg relative bottomBorder after:rounded-b-lg"
+            >
               <img src={contactImg} alt="" className="w-32 -mt-5" />
               <h1 className="text-xl font-semibold text-darkBlue">
                 Contact Our Support
@@ -65,14 +75,20 @@ const Contact = () => {
               >
                 Contact
               </button>
-            </div>
-            <div className="w-full flex flex-col gap-3 py-10 px-6 shadow-lg bg-white text-blue rounded-lg relative bottomBorder after:rounded-b-lg">
-            <img src={leadsImg} alt="" className="w-32" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 100 }} // Initial animation state (starting from right)
+              animate={{ opacity: 1, y: 0 }} // Animation on page load
+              transition={{ duration: 0.5, delay: 0.6 }} // Animation duration
+              className="w-full flex flex-col gap-3 py-10 px-6 shadow-lg bg-white text-blue rounded-lg relative bottomBorder after:rounded-b-lg"
+            >
+              <img src={leadsImg} alt="" className="w-32" />
               <h1 className="text-xl font-semibold text-darkBlue">
-              I'm Interested 
+                I'm Interested
               </h1>
               <p>
-              Turning Your Ideas into Powerful Software Solutions – Let's Connect!
+                Turning Your Ideas into Powerful Software Solutions – Let's
+                Connect!
               </p>
               <button
                 className="border-2 border-blue px-10 py-1  text-darkBlue rounded-full"
@@ -80,7 +96,7 @@ const Contact = () => {
               >
                 Let's Connect!
               </button>
-            </div>
+            </motion.div>
           </div>
         </div>
 

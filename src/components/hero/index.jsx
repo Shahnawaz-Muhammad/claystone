@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import longArrow from "../../assets/icons/Arrow Icon.svg";
 import WavingLine from "../curvelineAnimation/WavingLine";
+import { Link } from "react-router-dom";
 const Hero = () => {
   const text = "YOUR BEST IT PARTNERS";
   const textArray = text.split("");
@@ -43,14 +44,14 @@ const Hero = () => {
                 ))}
               </h1>
               <p className="text-center leading-5 max-w-md md:max-w-xl lg:max-w-3xl font-light">
-                From custom software development to cybersecurity, our team of
+                From custom software development to devOps, our team of
                 experts is dedicated to delivering solutions that are tailored
                 to your unique needs.
               </p>
 
-              <button className="mt-12 bg-darkBlue border border-white px-6 py-3 md:px-10 md:py-5 rounded-lg flex gap-3 md:gap-5 items-center z-50">
+              <Link to="/services" className="mt-12 bg-darkBlue border border-white px-6 py-3 md:px-10 md:py-5 rounded-lg flex gap-3 md:gap-5 items-center z-50">
                 Explore Now <img src={longArrow} alt="long arrow" />
-              </button>
+              </Link>
             </div>
             <WavingLine />
           </div>

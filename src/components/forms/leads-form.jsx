@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import 'react-toastify/dist/ReactToastify.css';
-import {  addDoc, collection} from "firebase/firestore"; 
-import db from '../../firebaseConfig';
+import "react-toastify/dist/ReactToastify.css";
+import { addDoc, collection } from "firebase/firestore";
+import db from "../../firebaseConfig";
 import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
+
 const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
   const [inputValue, setInputValue] = useState({
     firstName: "",
@@ -13,6 +15,13 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
     selectedTechnology: "default",
     otherTechnology: "",
   });
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
   const handleInputValues = (event) => {
     const { name, value } = event.target;
@@ -37,70 +46,85 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
     return [];
   };
 
-  const handleFormSubmit = async(e) => {
-    e.preventDefault();
-   
+  const onSubmit = (data) => console.log(data);
 
-    if(inputValue.firstName!==""&&inputValue.lastName!==""&&inputValue.email!==""&&inputValue.phone!==""&&inputValue.selectedCategory!==""&&inputValue.selectedTechnology!==""&&inputValue.otherTechnology==""){
-    await addDoc(collection(db, "LeadsForm"), {
-      firstName: inputValue.firstName,
-      lastName: inputValue.lastName,
-      email: inputValue.email,
-      phone: inputValue.phone,
-      Category: inputValue.selectedCategory,
-      Technology:inputValue.selectedTechnology,
-      
-    });
-    toast.success('Data added successfully!', {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose: 1000, 
-    });
+  // const handleFormSubmit = async (e) => {
+  //   e.preventDefault();
 
-    setInputValue({
-      firstName: "",
-      lastName: "", 
-      email: "",
-      phone: "",
-      selectedCategory: "",
-      selectedTechnology: "",
-      otherTechnology: "",
-    });
-    setOpenLeadsForm(false);
-  }else if(inputValue.firstName!==""&&inputValue.lastName!==""&&inputValue.email!==""&&inputValue.phone!==""&&inputValue.selectedCategory!==""&&inputValue.selectedTechnology!==""&&inputValue.otherTechnology!==""){
-    await addDoc(collection(db, "LeadsForm"), {
-      firstName: inputValue.firstName,
-      lastName: inputValue.lastName,
-      email: inputValue.email,
-      phone: inputValue.phone,
-      Category: inputValue.selectedCategory,
-      Technology:inputValue.selectedTechnology,
-      OtherTechnology:inputValue.otherTechnology
-    });
-    toast.success('Data added successfully!', {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose: 1000, 
-    });
+  //   if (
+  //     inputValue.firstName !== "" &&
+  //     inputValue.lastName !== "" &&
+  //     inputValue.email !== "" &&
+  //     inputValue.phone !== "" &&
+  //     inputValue.selectedCategory !== "" &&
+  //     inputValue.selectedTechnology !== "" &&
+  //     inputValue.otherTechnology == ""
+  //   ) {
+  //     await addDoc(collection(db, "LeadsForm"), {
+  //       firstName: inputValue.firstName,
+  //       lastName: inputValue.lastName,
+  //       email: inputValue.email,
+  //       phone: inputValue.phone,
+  //       Category: inputValue.selectedCategory,
+  //       Technology: inputValue.selectedTechnology,
+  //     });
+  //     toast.success("Data added successfully!", {
+  //       position: toast.POSITION.TOP_RIGHT,
+  //       autoClose: 1000,
+  //     });
 
-    setInputValue({
-      firstName: "",
-      lastName: "", 
-      email: "",
-      phone: "",
-      selectedCategory: "",
-      selectedTechnology: "",
-      otherTechnology: "",
-    });
-    setOpenLeadsForm(false);
-  }
-  else{
-    toast.error('An error occurred. Please try again.', {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose: 1000, 
-    });
+  //     setInputValue({
+  //       firstName: "",
+  //       lastName: "",
+  //       email: "",
+  //       phone: "",
+  //       selectedCategory: "",
+  //       selectedTechnology: "",
+  //       otherTechnology: "",
+  //     });
+  //     setOpenLeadsForm(false);
+  //   } else if (
+  //     inputValue.firstName !== "" &&
+  //     inputValue.lastName !== "" &&
+  //     inputValue.email !== "" &&
+  //     inputValue.phone !== "" &&
+  //     inputValue.selectedCategory !== "" &&
+  //     inputValue.selectedTechnology !== "" &&
+  //     inputValue.otherTechnology !== ""
+  //   ) {
+  //     await addDoc(collection(db, "LeadsForm"), {
+  //       firstName: inputValue.firstName,
+  //       lastName: inputValue.lastName,
+  //       email: inputValue.email,
+  //       phone: inputValue.phone,
+  //       Category: inputValue.selectedCategory,
+  //       Technology: inputValue.selectedTechnology,
+  //       OtherTechnology: inputValue.otherTechnology,
+  //     });
+  //     toast.success("Data added successfully!", {
+  //       position: toast.POSITION.TOP_RIGHT,
+  //       autoClose: 1000,
+  //     });
 
-    console.log()
-  }
-  };
+  //     setInputValue({
+  //       firstName: "",
+  //       lastName: "",
+  //       email: "",
+  //       phone: "",
+  //       selectedCategory: "",
+  //       selectedTechnology: "",
+  //       otherTechnology: "",
+  //     });
+  //     setOpenLeadsForm(false);
+  //   } else {
+  //     toast.error("An error occurred. Please try again.", {
+  //       position: toast.POSITION.TOP_RIGHT,
+  //       autoClose: 1000,
+  //     });
+
+  //     console.log();
+  //   }
+  // };
 
   return (
     <div
@@ -138,7 +162,7 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
             <h3 className="mb-4 text-2xl font-bold text-darkBlue dark:text-white my-5 text-center underline">
               Tell us what you need!
             </h3>
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <label
@@ -151,12 +175,23 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     id="firstName"
                     name="firstName"
-                    value={inputValue.firstName}
-                    onChange={handleInputValues}
+                    {...register("firstName", {
+                      required: "Firstname is required",
+                      minLength: { value: 3, message: "Invalid Firstname" },
+                      pattern: {
+                        value: /^[A-Za-z]+$/i,
+                        message: "Firstname should only contain alphabets",
+                      },
+                    })}
                     type="text"
                     placeholder="Firstname"
                   />
                 </div>
+                  {errors.firstName && (
+                    <span className=" absolute mt-[3.1rem] self-start ml-7 py-1 text-gradientStart">
+                      {errors.message}
+                    </span>
+                  )}
                 <div className="w-full md:w-1/2 px-3">
                   <label
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -168,8 +203,14 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     id="lastName"
                     name="lastName"
-                    value={inputValue.lastName}
-                    onChange={handleInputValues}
+                    {...register("lastName", {
+                      required: "Lastname is required",
+                      minLength: { value: 3, message: "Invalid Lastname" },
+                      pattern: {
+                        value: /^[A-Za-z]+$/i,
+                        message: "Lastname should only contain alphabets",
+                      },
+                    })}
                     type="text"
                     placeholder="Lastname"
                   />
@@ -188,8 +229,13 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
                     id="email"
                     name="email"
                     type="email"
-                    value={inputValue.email}
-                    onChange={handleInputValues}
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "invalid email address",
+                      },
+                    })}
                     placeholder="Email"
                   />
                 </div>
@@ -208,8 +254,7 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
                     id="phone"
                     type="number"
                     name="phone"
-                    value={inputValue.phone}
-                    onChange={handleInputValues}
+                    {...register("lastName", { required: true, maxLength: 20 })}
                     placeholder="Phone Number"
                   />
                 </div>

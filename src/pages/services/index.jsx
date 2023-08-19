@@ -38,7 +38,7 @@ const Services = ({ data }) => {
               }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               key={item.id}
-              className="w-full rounded-b-lg border-t-8 border-darkBlue py-6 services-box-shadow md:transition-transform duration-300 hover:scale-105 grid gap-1"
+              className="w-full rounded-lg border-t-8 border-darkBlue py-6 services-box-shadow md:transition-transform duration-300 hover:scale-105 grid gap-1"
             >
               <div className=" w-100 flex justify-center">
                 <img

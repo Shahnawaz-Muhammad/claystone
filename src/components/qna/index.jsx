@@ -50,27 +50,27 @@ const AskQuestions = () => {
   const faqList = [
     {
       id: 1,
-      title: "What services does WaveNet offer?",
+      title: "What services does Claystone offer?",
       description:
-        "Our pricing varies based on the specific services and needs of your business. We offer flexible pricing options to suit your budget and requirements. Contact us to learn more.",
+        "Claystone Tech offers a comprehensive range of services including web development, mobile application development, DevOps, desktop application development, and digital marketing. With expertise across these domains, Claystone Tech enables businesses to harness cutting-edge technologies for enhanced online presence, seamless operations, and effective customer engagement.",
     },
     {
       id: 2,
       title: "Which IT solution is for my business?",
       description:
-        "Our pricing varies based on the specific services and needs of your business. We offer flexible pricing options to suit your budget and requirements. Contact us to learn more.",
+        "Our team at Claystone specializes in crafting tailor-made IT solutions that align with your business needs and goals. Let's discuss your requirements to determine the ideal solution for your specific industry and objectives.",
     },
     {
       id: 3,
       title: "How much do the services cost?",
       description:
-        "Our pricing varies based on the specific services and needs of your business. We offer flexible pricing options to suit your budget and requirements. Contact us to learn more.",
+        "At Claystone, our pricing varies based on the specific services and solutions tailored to your business needs. Let's connect to discuss your requirements and provide you with an accurate cost estimate.",
     },
     {
       id: 4,
       title: "How do I get started with the IT solutions?",
       description:
-        "Our pricing varies based on the specific services and needs of your business. We offer flexible pricing options to suit your budget and requirements. Contact us to learn more.",
+        "Starting with our IT solutions at Claystone is simple. Reach out to us, and we'll engage in a discussion to understand your business requirements. From there, we'll outline a customized plan to implement the right solutions that align with your objectives.",
     },
   ];
 
