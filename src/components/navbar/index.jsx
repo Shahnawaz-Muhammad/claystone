@@ -72,7 +72,6 @@ const Navbar = () => {
             );
           })}
         </div>
-        <div className="border-2 flex items-center"></div>
       </div>
     </div>
   );
