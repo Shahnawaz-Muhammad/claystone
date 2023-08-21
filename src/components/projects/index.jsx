@@ -110,13 +110,13 @@ const Projects = () => {
           animate={projectControls}
           className="flex flex-col md:flex-row items-center gap-10 h-full"
         >
-          <div className={`w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-gradientStart p-5 md:p-20 text-center flex flex-col gap-8 container-shadow ${showShadow ? 'shadow-visible' : 'shadow-hidden'}`}>
-            <div className="flex flex-col gap-5 pt-10">
+          <div className={`w-full md:w-1/2 md:h-[30rem] lg:h-[35rem] flex-grow rounded-3xl bg-gradientStart p-10 lg:p-20 text-center flex flex-col gap-8 container-shadow ${showShadow ? 'shadow-visible' : 'shadow-hidden'}`}>
+            <div className="flex flex-col gap-5 pt-10 items-center">
               <div>
                 <img src={project1} alt="" />
               </div>
               <p>2021</p>
-              <h3 className="text-5xl font-space-grotesk font-semibold">
+              <h3 className="text-4xl lg:text-5xl font-space-grotesk font-semibold">
                 E-Commerce Application
               </h3>
             </div>
@@ -139,13 +139,13 @@ const Projects = () => {
               </button>
             </div>
           </div> */}
-          <div className={`w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-orangePeel p-5 md:p-20 text-center flex flex-col gap-8 container-shadow ${showShadow ? 'shadow-visible-orange' : 'shadow-hidden'}`}>
-            <div className="flex flex-col gap-5 pt-10 items-center">
+          <div className={`w-full md:w-1/2 md:h-[30rem] lg:h-[35rem] flex-grow rounded-3xl bg-orangePeel p-10 lg:p-20 text-center flex flex-col gap-8 container-shadow ${showShadow ? 'shadow-visible-orange' : 'shadow-hidden'}`}>
+            <div className="flex flex-col gap-5 items-center">
               <div>
                 <img src={project2} alt=""  className="w-full rounded-2xl"/>
               </div>
               <p>2023</p>
-              <h3 className="text-5xl font-space-grotesk font-semibold">
+              <h3 className="text-4xl lg:text-5xl font-space-grotesk font-semibold">
                 Tracking Application
               </h3>
             </div>

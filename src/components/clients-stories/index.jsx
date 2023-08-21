@@ -122,7 +122,9 @@ const ClientsStories = () => {
                 <h3>Hassan Qureshi</h3>
                 <p>HOD IT, Madina Mac</p>
               </div>
-              <img src={person1} alt="review" className="w-16 rounded-full" />
+            <div className="w-16 h-16">
+                            <img src={person1} alt="review" className="w-full h-full rounded-full" />
+            </div>
             </div>
           </div>
 
@@ -140,7 +142,9 @@ const ClientsStories = () => {
                 <h3>Abdullah Ashvani</h3>
                 <p>QA, Diamond Excellency</p>
               </div>
-              <img src={person2} alt="review" className="w-16 rounded-full" />
+            <div className="w-16 h-16">
+                            <img src={person2} alt="review" className="w-full h-full rounded-full" />
+            </div>
             </div>
           </div>
         </motion.div>
