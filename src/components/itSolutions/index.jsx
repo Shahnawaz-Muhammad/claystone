@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import longArrow from "../../assets/icons/white-arrow-icon.png";
 
 const ItSolutions = () => {
@@ -16,9 +17,9 @@ const ItSolutions = () => {
           </p>
         </div>
         <div className="flex justify-center my-20">
-          <button className="border border-darktext-white text-white px-6 py-3 md:px-7 md:py-5 rounded-lg flex gap-3 md:gap-5 items-center">
+          <Link to="/contact" className="border border-darktext-white text-white px-6 py-3 md:px-7 md:py-5 rounded-lg flex gap-3 md:gap-5 items-center">
             GET FREE CONSULTATION <img src={longArrow} alt="long arrow" />
-          </button>
+          </Link>
         </div>
       </div>
     </div>
