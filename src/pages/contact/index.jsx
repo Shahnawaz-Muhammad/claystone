@@ -6,6 +6,7 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import ContactForm from "../../components/forms/contact-form";
 import LeadsForm from "../../components/forms/leads-form";
 import contactImg from "../../assets/images/contact-us.jpeg";
+import contactInfoImg from "../../assets/images/contact-details.jpg";
 import leadsImg from "../../assets/images/leads-2.jpg";
 import { motion } from "framer-motion";
 
@@ -35,6 +36,8 @@ const Contact = () => {
               transition={{ duration: 0.5, delay: 0.4 }} // Animation duration
               className="w-full flex flex-col gap-3 py-10 px-6 shadow-lg bg-white text-darkBlue rounded-lg relative bottomBorder after:rounded-b-lg"
             >
+              <img src={contactInfoImg} alt="" className="w-32" />
+
               <h1 className="text-2xl font-semibold text-blue">We're here</h1>
               <p>Our door is always open for a good cup of tea</p>
               <div className="flex flex-col gap-1">
@@ -44,7 +47,7 @@ const Contact = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <BsEnvelope className="w-8 text-blue" />{" "}
-                  <span className="w-full">info@Claystone.pk</span>
+                  <span className="w-full">info@claystone.pk</span>
                 </div>
                 {/* <div className="flex items-center gap-3">
                   <MdOutlineLocationOn className="w-8 text-blue" />

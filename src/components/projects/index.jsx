@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import project1 from "../../assets/images/192 1.png";
 import project2 from "../../assets/images/tracking-app.jpg";
+import { MdSpatialTracking } from "react-icons/md";
 import { useAnimation, motion } from "framer-motion";
 
 const Projects = () => {
@@ -10,6 +11,18 @@ const Projects = () => {
   const headingRef = useRef(null);
   const descRef = useRef(null);
   const projectRef = useRef(null);
+
+  const cardData = [
+    { id: 1, title: "Tracking System", year: "2023" },
+    { id: 2, title: "e-Commerce App", year: "2022" },
+    { id: 3, title: "CMS", year: "2021" },
+    { id: 4, title: "Building Construction", year: "2022" },
+    { id: 5, title: "Smart Cities", year: "2023" },
+    { id: 6, title: "Construction Management System", year: "2020" },
+    { id: 7, title: "Ticketing System", year: "2023" },
+    { id: 8, title: "CRM", year: "2021" },
+  ];
+
   useEffect(() => {
     const headingElement = headingRef.current;
     const descElement = descRef.current;
@@ -76,7 +89,6 @@ const Projects = () => {
     return () => clearInterval(toggleShadowInterval);
   }, []);
 
-
   return (
     <div className="bg-darkBlue text-white pt-40 pb-20">
       <div className="grid gap-[50px] lg:gap-[80px] w-[90%] lg:w-[95%] xl:w-[86%] mx-auto ">
@@ -99,7 +111,8 @@ const Projects = () => {
           >
             As an IT company, we pride ourselves on delivering customized
             solutions that meet our clients' unique needs. Our projects
-            highlight our expertise in web & mobile development, desktop application, devOps, and digital marketing.
+            highlight our expertise in web & mobile development, desktop
+            application, devOps, and digital marketing.
           </motion.p>
         </div>
 
@@ -108,48 +121,50 @@ const Projects = () => {
           initial="hidden"
           variants={projectVariants}
           animate={projectControls}
-          className="flex flex-col md:flex-row items-center gap-10 h-full"
+          className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 h-full"
         >
-          <div className={`w-full md:w-1/2 md:h-[30rem] lg:h-[35rem] flex-grow rounded-3xl bg-gradientStart p-10 lg:p-20 text-center flex flex-col gap-8 container-shadow ${showShadow ? 'shadow-visible' : 'shadow-hidden'}`}>
-            <div className="flex flex-col gap-5 pt-10 items-center">
-              <div>
-                <img src={project1} alt="" />
+          {cardData.map((item, index) => {
+            return (
+              <div
+                key={item.id}
+                className={`w-full  flex-grow rounded-3xl ${
+                  index % 2 === 0 ? "bg-gradientStart" : "bg-orangePeel"
+                } p-10  text-center flex flex-col gap-8 container-shadow ${
+                  showShadow && index % 2 === 0
+                    ? "shadow-visible"
+                    : showShadow && index % 2 === 1
+                    ? "shadow-visible-orange"
+                    : "shadow-hidden"
+                }`}
+              >
+                <div className="flex flex-col gap-5  items-center">
+                  <div>
+                    <MdSpatialTracking className="text-7xl" />
+                    {/* <img src={project1} alt="" /> */}
+                  </div>
+                  <p>{item.year}</p>
+                  <h3 className="text-4xl lg:text-3xl font-space-grotesk font-semibold">
+                    {item.title}
+                  </h3>
+                </div>
               </div>
-              <p>2021</p>
-              <h3 className="text-4xl lg:text-5xl font-space-grotesk font-semibold">
-                E-Commerce Application
-              </h3>
-            </div>
-          </div>
+            );
+          })}
 
-          {/* <div className={`w-full md:w-1/2 md:h-[30rem] xl:h-[35rem] flex-grow rounded-3xl bg-orangePeel p-5 md:p-20 text-center flex flex-col gap-8 container-shadow ${showShadow ? 'shadow-visible-orange' : 'shadow-hidden'}`}>
-            <p className="text-lg">CYBER SECURITY</p>
-            <div>
-              <h3 className="text-7xl md:text-4xl lg:text-7xl font-space-grotesk font-bold">
-                Mika <br /> Medika
-              </h3>
-              <p className="font-normal text-md">
-                Mika Medika Healthcare, a large hospital network, was concerned
-                about the security of their patient data.
-              </p>
-            </div>
-            <div>
-              <button className="bg-white text-darkBlue px-12 py-3 md:px-9 md:py-2 xl:px-12 xl:py-3 rounded-xl shadow-md">
-                Read Me
-              </button>
-            </div>
-          </div> */}
-          <div className={`w-full md:w-1/2 md:h-[30rem] lg:h-[35rem] flex-grow rounded-3xl bg-orangePeel p-10 lg:p-20 text-center flex flex-col gap-8 container-shadow ${showShadow ? 'shadow-visible-orange' : 'shadow-hidden'}`}>
+          {/* <div
+            className={`w-full  flex-grow rounded-3xl bg-orangePeel p-10 lg:p-20 text-center flex flex-col gap-8 container-shadow ${
+              showShadow ? "shadow-visible-orange" : "shadow-hidden"
+            }`}
+          >
             <div className="flex flex-col gap-5 items-center">
               <div>
-                <img src={project2} alt=""  className="w-full rounded-2xl"/>
               </div>
               <p>2023</p>
               <h3 className="text-4xl lg:text-5xl font-space-grotesk font-semibold">
                 Tracking Application
               </h3>
             </div>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </div>
