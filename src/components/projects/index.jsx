@@ -1,7 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import project1 from "../../assets/images/192 1.png";
-import project2 from "../../assets/images/tracking-app.jpg";
-import { MdSpatialTracking } from "react-icons/md";
+import eCommerce from "../../assets/images/E-commerce.png";
+import vehicleTracking from "../../assets/images/vehicle-tracking.png";
+import complainManagement from "../../assets/images/complain.png";
+import buildingControl from "../../assets/images/building-control.png";
+import smartCities from "../../assets/images/smart-city.png";
+import constructionManagment from "../../assets/images/Construction.png";
+import ticketing from "../../assets/images/ticketing.png";
+import crm from "../../assets/images/crm.png";
+// import { MdSpatialTracking } from "react-icons/md";
 import { useAnimation, motion } from "framer-motion";
 
 const Projects = () => {
@@ -13,14 +19,14 @@ const Projects = () => {
   const projectRef = useRef(null);
 
   const cardData = [
-    { id: 1, title: "Vehicle Tracking System" },
-    { id: 2, title: "e-Commerce Echo System" },
-    { id: 3, title: "Complain Management System " },
-    { id: 4, title: "Building Control Systems" },
-    { id: 5, title: "Smart Cities" },
-    { id: 6, title: "Construction Management Systems" },
-    { id: 7, title: "Ticketing Systems" },
-    { id: 8, title: "CRM" },
+    { id: 1, title: "Vehicle Tracking System", imgUrl: vehicleTracking},
+    { id: 2, title: "e-Commerce Echo System", imgUrl: eCommerce},
+    { id: 3, title: "Complain Management System ", imgUrl: complainManagement },
+    { id: 4, title: "Building Control Systems" , imgUrl: buildingControl},
+    { id: 5, title: "Smart Cities", imgUrl: smartCities },
+    { id: 6, title: "Construction Management Systems" , imgUrl: constructionManagment},
+    { id: 7, title: "Ticketing Systems", imgUrl: ticketing},
+    { id: 8, title: "CRM", imgUrl: crm },
   ];
 
   useEffect(() => {
@@ -139,31 +145,17 @@ const Projects = () => {
               >
                 <div className="flex flex-col gap-5  items-center">
                   <div>
-                    <MdSpatialTracking className="text-7xl" />
+                    {/* <MdSpatialTracking className="text-6xl" /> */}
+                    <img src={item.imgUrl} alt={item.title} className="w-20"/>
                     {/* <img src={project1} alt="" /> */}
                   </div>
-                  <h3 className="text-4xl lg:text-3xl font-space-grotesk font-semibold">
+                  <h3 className="text-2xl font-space-grotesk font-normal">
                     {item.title}
                   </h3>
                 </div>
               </div>
             );
           })}
-
-          {/* <div
-            className={`w-full  flex-grow rounded-3xl bg-orangePeel p-10 lg:p-20 text-center flex flex-col gap-8 container-shadow ${
-              showShadow ? "shadow-visible-orange" : "shadow-hidden"
-            }`}
-          >
-            <div className="flex flex-col gap-5 items-center">
-              <div>
-              </div>
-              <p>2023</p>
-              <h3 className="text-4xl lg:text-5xl font-space-grotesk font-semibold">
-                Tracking Application
-              </h3>
-            </div>
-          </div> */}
         </motion.div>
       </div>
     </div>
