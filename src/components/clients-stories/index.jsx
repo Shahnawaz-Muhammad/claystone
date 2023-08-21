@@ -112,7 +112,7 @@ const ClientsStories = () => {
         >
           <div className="flex flex-col gap-5">
             <h1 className="text-5xl text-orangePeel font-space-grotesk font-semibold">
-              Amazing!
+              Amazing Services
             </h1>
             <p>
               “Claystone Tech provided the assurance we required to concentrate on our core business. They meticulously grasped our distinct requirements, fashioning a safeguarding solution for our sensitive data while upholding industry regulatory compliance.”
@@ -132,11 +132,10 @@ const ClientsStories = () => {
 
           <div className="flex flex-col gap-5">
             <h1 className="text-5xl text-orangePeel font-space-grotesk font-semibold">
-              Best Service
+              Best Customer Support
             </h1>
             <p>
-              “Juggling the demands of our expanding business was a challenge until our collaboration with Claystone Tech. Their tailored software development solution has effectively streamlined our operations, enhancing efficiency, and delivering notable time and cost savings.”
-            </p>
+"Claystone Tech's remarkable customer support and post-deployment assistance transformed our business. Their tailored software solution streamlined operations, boosting efficiency and saving us time and costs."            </p>
             <div className="flex justify-end items-center gap-5">
               <div className="flex flex-col justify-between text-right">
                 <h3>Abdullah Ashvani</h3>
