@@ -3,115 +3,73 @@ import "react-toastify/dist/ReactToastify.css";
 import { addDoc, collection } from "firebase/firestore";
 import db from "../../firebaseConfig";
 import { toast } from "react-toastify";
+import { Controller, useForm } from "react-hook-form";
 const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
-  const [inputValue, setInputValue] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    selectedCategory: "default",
-    selectedTechnology: "default",
-    otherTechnology: "",
-  });
+  const {
+    register,
+    control,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm({mode: "all"});
+  
+  const [showOtherInput, setShowOtherInput] = useState(false);
 
-  const handleInputValues = (event) => {
-    const { name, value } = event.target;
-    setInputValue({
-      ...inputValue,
-      [name]: value,
-    });
+  const categories = ["web", "desktop", "mobile", "server", "ai"];
+
+  const technologyOptions = {
+    web: ["React", "ASP.Net", "PHP", "WordPress", "Other"],
+    desktop: ["Windows", "Linux", "MacOS", "Other"],
+    mobile: ["Flutter", "React Native", "Android", "IOS", "Other"],
+    server: ["Django", "Java", "Node.js", "Other"],
+    ai: ["Python", "R-Language", "Other"],
   };
 
-  const getTechnologyOptions = () => {
-    if (inputValue.selectedCategory === "web") {
-      return ["React", "ASP.Net", "PHP", "WordPress", "Other"];
-    } else if (inputValue.selectedCategory === "desktop") {
-      return ["Windows", "Linux", "MacOS", "Other"];
-    } else if (inputValue.selectedCategory === "mobile") {
-      return ["Flutter", "React Native", "Android", "IOS", "Other"];
-    } else if (inputValue.selectedCategory === "server") {
-      return ["Django", "Java", "Node.js", "Other"];
-    } else if (inputValue.selectedCategory === "ai") {
-      return ["Python", "R-Language", "Other"];
-    }
-    return [];
+  const selectedCategory = watch("selectedCategory");
+  const selectedTechnology = watch("selectedTechnology");
+
+  const handleTechnologyChange = (value) => {
+    setShowOtherInput(value === "Other");
   };
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-
+  const handleFormSubmit = async (data) => {
     if (
-      inputValue.firstName !== "" &&
-      inputValue.lastName !== "" &&
-      inputValue.email !== "" &&
-      inputValue.phone !== "" &&
-      inputValue.selectedCategory !== "" &&
-      inputValue.selectedTechnology !== "" &&
-      inputValue.otherTechnology == ""
+      data.firstName &&
+      data.lastName &&
+      data.email &&
+      data.phone &&
+      data.selectedCategory &&
+      data.selectedTechnology
     ) {
-      await addDoc(collection(db, "LeadsForm"), {
-        firstName: inputValue.firstName,
-        lastName: inputValue.lastName,
-        email: inputValue.email,
-        phone: inputValue.phone,
-        Category: inputValue.selectedCategory,
-        Technology: inputValue.selectedTechnology,
-      });
+      const formData = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phone: data.phone,
+        Category: data.selectedCategory,
+        Technology: data.selectedTechnology,
+      };
+      
+      if (data.selectedTechnology === "Other") {
+        formData.OtherTechnology = data.otherTechnology;
+      }
+      
+      await addDoc(collection(db, "LeadsForm"), formData);
+      
       toast.success("Data added successfully!", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 1000,
       });
 
-      setInputValue({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        selectedCategory: "",
-        selectedTechnology: "",
-        otherTechnology: "",
-      });
-      setOpenLeadsForm(false);
-    } else if (
-      inputValue.firstName !== "" &&
-      inputValue.lastName !== "" &&
-      inputValue.email !== "" &&
-      inputValue.phone !== "" &&
-      inputValue.selectedCategory !== "" &&
-      inputValue.selectedTechnology !== "" &&
-      inputValue.otherTechnology !== ""
-    ) {
-      await addDoc(collection(db, "LeadsForm"), {
-        firstName: inputValue.firstName,
-        lastName: inputValue.lastName,
-        email: inputValue.email,
-        phone: inputValue.phone,
-        Category: inputValue.selectedCategory,
-        Technology: inputValue.selectedTechnology,
-        OtherTechnology: inputValue.otherTechnology,
-      });
-      toast.success("Data added successfully!", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 1000,
-      });
+      reset();
 
-      setInputValue({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        selectedCategory: "",
-        selectedTechnology: "",
-        otherTechnology: "",
-      });
       setOpenLeadsForm(false);
     } else {
-      toast.error("An error occurred. Please try again.", {
+      toast.error("Please fill in all required fields.", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 1000,
       });
-
-      console.log();
     }
   };
 
@@ -151,7 +109,7 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
             <h3 className="mb-4 text-2xl font-bold text-darkBlue dark:text-white my-5 text-center underline">
               Tell us what you need!
             </h3>
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={handleSubmit(handleFormSubmit)}>
               <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <label
@@ -161,14 +119,25 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
                     First Name
                   </label>
                   <input
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className=" border border-darkBlue text-darkBlue text-sm rounded-lg focus:outline-none block w-full p-2.5 "
                     id="firstName"
                     name="firstName"
-                    value={inputValue.firstName}
-                    onChange={handleInputValues}
+                    {...register("firstName", {
+                      required: "Firstname is required",
+                      minLength: { value: 3, message: "Invalid Firstname" },
+                      pattern: {
+                        value: /^[A-Za-z]+$/i,
+                        message: "Firstname should only contain alphabets",
+                      },
+                    })}
                     type="text"
                     placeholder="Firstname"
                   />
+                  {errors.firstName && (
+                    <span className=" absolute text-red text-sm">
+                      {errors.firstName?.message}
+                    </span>
+                  )}
                 </div>
                 <div className="w-full md:w-1/2 px-3">
                   <label
@@ -178,18 +147,29 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
                     Last Name
                   </label>
                   <input
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className=" border border-darkBlue text-darkBlue text-sm rounded-lg focus:outline-none block w-full p-2.5 "
                     id="lastName"
                     name="lastName"
-                    value={inputValue.lastName}
-                    onChange={handleInputValues}
                     type="text"
+                    {...register("lastName", {
+                      required: "Lastname is required",
+                      minLength: { value: 3, message: "Invalid Lastname" },
+                      pattern: {
+                        value: /^[A-Za-z]+$/i,
+                        message: "Lastname should only contain alphabets",
+                      },
+                    })}
                     placeholder="Lastname"
                   />
+                  {errors.lastName && (
+                    <span className=" absolute text-red text-sm">
+                      {errors.lastName?.message}
+                    </span>
+                  )}
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full md:w-1/2 px-3">
+                <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <label
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                     htmlFor="email"
@@ -197,17 +177,27 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
                     Email
                   </label>
                   <input
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className=" border border-darkBlue text-darkBlue text-sm rounded-lg focus:outline-none block w-full p-2.5 "
                     id="email"
                     name="email"
                     type="email"
-                    value={inputValue.email}
-                    onChange={handleInputValues}
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "invalid email address",
+                      },
+                    })}
                     placeholder="Email"
                   />
+                  {errors.email && (
+                    <span className=" absolute   text-red text-sm">
+                      {errors.email?.message}
+                    </span>
+                  )}
                 </div>
 
-                {/* <input type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required> */}
+                {/* <input type="text" id="first_name" className=" border border-darkBlue text-darkBlue text-sm rounded-lg focus:outline-none block w-full p-2.5 " placeholder="John" required> */}
 
                 <div className="w-full md:w-1/2 px-3">
                   <label
@@ -217,85 +207,139 @@ const LeadsForm = ({ openLeadsForm, setOpenLeadsForm }) => {
                     Phone
                   </label>
                   <input
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className=" border border-darkBlue text-darkBlue text-sm rounded-lg focus:outline-none block w-full p-2.5 "
                     id="phone"
                     type="number"
                     name="phone"
-                    value={inputValue.phone}
-                    onChange={handleInputValues}
+                    {...register("phone", {
+                      required: "Phone Number is required",
+                      minLength: {
+                        value: 10,
+                        message: "Number cannot be less than 10",
+                      },
+
+                      pattern: {
+                        value: /^[0-9]+$/,
+                        message: "Invalid Phone Number",
+                      },
+                    })}
                     placeholder="Phone Number"
                   />
+                  {errors.phone && (
+                    <span className=" absolute   text-red text-sm">
+                      {errors.phone?.message}
+                    </span>
+                  )}
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full md:w-1/2 px-3    ">
+                <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <label
-                    htmlFor="countries"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    htmlFor="selectedCategory"
+                    className="block mb-2 text-sm font-medium text-darkBlue dark:text-white"
                   >
                     Select a Category
                   </label>
-                  <select
-                    id="categories"
+                  <Controller
                     name="selectedCategory"
-                    value={inputValue.selectedCategory}
-                    onChange={handleInputValues}
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  >
-                    <option value="">Choose a Category</option>
-                    <option value="web">Web Application</option>
-                    <option value="desktop">Desktop Application</option>
-                    <option value="mobile">Mobile Application</option>
-                    <option value="server">Serverside Application</option>
-                    <option value="ai">
-                      Machine Learning / Artificial Intelligence
-                    </option>
-                  </select>
+                    control={control}
+                    render={({ field }) => (
+                      <select
+                        {...field}
+                        className=" border border-darkBlue text-darkBlue text-sm rounded-lg focus:outline-none block w-full p-2.5 "
+                        name="selectedCategory"
+                        {...register("selectedCategory", {
+                          required: "Please select an option",
+                        })}
+                      >
+                        <option value="">Choose a Category</option>
+                        {categories.map((category) => (
+                          <option key={category} value={category}>
+                            {category}
+                          </option>
+                        ))}
+                      </select>
+                    )}
+                  />
+                  {errors.selectedCategory && (
+                    <span className=" absolute   text-red text-sm">
+                      {errors.selectedCategory?.message}
+                    </span>
+                  )}
                 </div>
                 <div className="w-full md:w-1/2 px-3    ">
                   <label
                     htmlFor="countries"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-darkBlue dark:text-white"
                   >
                     Select Technology
                   </label>
-                  <select
-                    id="technologies"
+                  <Controller
                     name="selectedTechnology"
-                    value={inputValue.selectedTechnology}
-                    onChange={handleInputValues}
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  >
-                    <option value="">Choose a Technology</option>
-                    {getTechnologyOptions().map((tech) => (
-                      <option key={tech} value={tech}>
-                        {tech}
-                      </option>
-                    ))}
-                  </select>
+                    control={control}
+                    render={({ field }) => (
+                      <div>
+                        <select
+                          {...field}
+                          className=" border border-darkBlue text-darkBlue text-sm rounded-lg focus:outline-none block w-full p-2.5 "
+                          onChange={(e) => {
+                            field.onChange(e.target.value);
+                            handleTechnologyChange(e.target.value);
+                          }}
+                          {...register("selectedTechnology", {
+                            required: "Please select an option",
+                          })}
+                        >
+                          <option value="">Choose a Technology</option>
+                          {technologyOptions[selectedCategory]?.map((tech) => (
+                            <option key={tech} value={tech}>
+                              {tech}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
+                  />
+                  {errors.selectedTechnology && (
+                    <span className=" absolute   text-red text-sm">
+                      {errors.selectedTechnology?.message}
+                    </span>
+                  )}
                 </div>
               </div>
 
-              {inputValue.selectedTechnology === "Other" && (
-                <div className="w-full my-4">
-                  <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                    Other
-                  </label>
-                  <input
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    id="otherTechnology"
-                    type="text"
+              {selectedTechnology === "Other" && (
+                <div className="w-full my-4 mb-6">
+                  <label className="block ...">Other Technology</label>
+                  <Controller
                     name="otherTechnology"
-                    value={inputValue.otherTechnology}
-                    onChange={handleInputValues}
-                    placeholder="Enter Other Technology"
+                    control={control}
+                    render={({ field }) => (
+                      <input
+                        {...field}
+                        className=" border border-darkBlue text-darkBlue text-sm rounded-lg focus:outline-none block w-full p-2.5 "
+                        name="otherTechnology"
+                        {...register("otherTechnology", {
+                          required: "Other Technology is required",
+                          minLength: {
+                            value: 5,
+                            message: "Please type at least 5 words",
+                          },
+                        })}
+                      />
+                    )}
                   />
+                  {errors.otherTechnology && (
+                    <span className=" absolute   text-red text-sm">
+                      {errors.otherTechnology?.message}
+                    </span>
+                  )}
                 </div>
               )}
               <button
                 type="submit"
                 //  onClick={handleFormSubmit}
-                className="mb-6 inline-block w-full rounded bg-darkBlue px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                className="my-6 inline-block w-full rounded bg-darkBlue px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] "
               >
                 Send
               </button>
