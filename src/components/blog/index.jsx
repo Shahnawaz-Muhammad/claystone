@@ -125,11 +125,11 @@ const Blog = () => {
             {blogData.map((data, index) => (
               <div key={index}>
                 {data.unique ? (
-                  <div className="bg-darkBlue h-[480px] shadow-xl py-[108px] text-center rounded-[25px]">
+                  <div className="w-full bg-darkBlue  shadow-xl py-[108px] text-center rounded-[25px]">
                     <p className="font-poppins text-white text-xl leading-[30px] tracking-widest">
                       {data.name}
                     </p>
-                    <h6 className="pt-5 font-poppins text-white font-semibold text-2xl sm:text-xl 2xl:text-2xl leading-[40px] 2xl:w-[387px] lg:mx-auto">
+                    <h6 className="px-3 pt-5 font-poppins text-white font-semibold text-2xl sm:text-xl 2xl:text-2xl leading-[40px] 2xl:w-[387px] lg:mx-auto">
                       {data.blog}
                     </h6>
                     <p className="pb-[48px] font-poppins  text-lightBlue leading-[26px] font-light text-sm">
@@ -140,13 +140,13 @@ const Blog = () => {
                     </button>
                   </div>
                 ) : (
-                  <div className="h-[480px] flex items-center">
+                  <div className="w-full flex items-center">
                     <div className="border-y-[1px] border-darkBlue py-[56px] h-[439px] grid-shrink-0 flex items-center">
                       <div>
                         <p className="font-poppins text-darborder-darkBlue uppercase text-xl leading-[30px] tracking-widest">
                           {data.name}
                         </p>
-                        <h6 className="pt-5 font-poppins text-darkBlue font-semibold text-2xl sm:text-xl 2xl:text-2xl leading-[40px] 2xl:w-[387px] lg:mx-auto">
+                        <h6 className="px-3 pt-5 font-poppins text-darkBlue font-semibold text-2xl sm:text-xl 2xl:text-2xl leading-[40px] 2xl:w-[387px] lg:mx-auto">
                           {data.blog}
                         </h6>
                         <h5 className="pt-16 font-space-grotesk font-bold text-darkBlue text-5xl leading-[60px] text-right">

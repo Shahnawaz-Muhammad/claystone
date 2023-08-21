@@ -13,14 +13,14 @@ const Projects = () => {
   const projectRef = useRef(null);
 
   const cardData = [
-    { id: 1, title: "Tracking System", year: "2023" },
-    { id: 2, title: "e-Commerce App", year: "2022" },
-    { id: 3, title: "CMS", year: "2021" },
-    { id: 4, title: "Building Construction", year: "2022" },
-    { id: 5, title: "Smart Cities", year: "2023" },
-    { id: 6, title: "Construction Management System", year: "2020" },
-    { id: 7, title: "Ticketing System", year: "2023" },
-    { id: 8, title: "CRM", year: "2021" },
+    { id: 1, title: "Vehicle Tracking System" },
+    { id: 2, title: "e-Commerce Echo System" },
+    { id: 3, title: "Complain Management System " },
+    { id: 4, title: "Building Control Systems" },
+    { id: 5, title: "Smart Cities" },
+    { id: 6, title: "Construction Management Systems" },
+    { id: 7, title: "Ticketing Systems" },
+    { id: 8, title: "CRM" },
   ];
 
   useEffect(() => {
@@ -90,7 +90,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="bg-darkBlue text-white pt-40 pb-20">
+    <div className="bg-darkBlue text-white pt-40 pb-16">
       <div className="grid gap-[50px] lg:gap-[80px] w-[90%] lg:w-[95%] xl:w-[86%] mx-auto ">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <motion.h3
@@ -129,7 +129,7 @@ const Projects = () => {
                 key={item.id}
                 className={`w-full  flex-grow rounded-3xl ${
                   index % 2 === 0 ? "bg-gradientStart" : "bg-orangePeel"
-                } p-10  text-center flex flex-col gap-8 container-shadow ${
+                } p-4  text-center flex flex-col gap-8 container-shadow ${
                   showShadow && index % 2 === 0
                     ? "shadow-visible"
                     : showShadow && index % 2 === 1
@@ -142,7 +142,6 @@ const Projects = () => {
                     <MdSpatialTracking className="text-7xl" />
                     {/* <img src={project1} alt="" /> */}
                   </div>
-                  <p>{item.year}</p>
                   <h3 className="text-4xl lg:text-3xl font-space-grotesk font-semibold">
                     {item.title}
                   </h3>
