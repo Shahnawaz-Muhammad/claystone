@@ -116,7 +116,7 @@ function OurWork() {
             <p className="text-sm text-center">Successful Projects</p>
           </div>
 
-          <div className="w-full mb-4  bg-darkBlue h-0.5 mr-2"></div>
+          <div className="w-full bg-darkBlue h-0.5 mr-2"></div>
 
           <div className="mt-4 w-full flex flex-col justify-center items-center">
             <h1 className="mr-4 text-2xl md:text-5xl xl:text-6xl text-center">
@@ -125,7 +125,7 @@ function OurWork() {
             <p className="text-sm text-center">Satisfied Clients</p>
           </div>
 
-          <div className="w-full mb-4  bg-darkBlue h-0.5 mr-2"></div>
+          <div className="w-full bg-darkBlue h-0.5 mr-2"></div>
 
           <div className="mt-4 w-full flex flex-col justify-center items-center">
             <h1 className=" text-2xl md:text-5xl xl:text-6xl text-center">

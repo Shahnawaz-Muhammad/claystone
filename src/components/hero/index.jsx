@@ -44,7 +44,7 @@ const Hero = () => {
                 ))}
               </h1>
               <p className="text-center leading-5 max-w-md md:max-w-xl lg:max-w-3xl font-light">
-                From custom software development to devOps, our team of
+                From custom software development to DevOps, our team of
                 experts is dedicated to delivering solutions that are tailored
                 to your unique needs.
               </p>
