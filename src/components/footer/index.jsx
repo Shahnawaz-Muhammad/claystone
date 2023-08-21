@@ -67,8 +67,8 @@ const Footer = () => {
   return (
     <div className="bg-darkBlue">
       <div className="w-[90%] lg:w-[95%] xl:w-[86%] mx-auto py-20">
-        <div className="grid gap-20  overflow-hidden">
-          <div className="grid grid-cols-12 gap-8 lg:gap-4">
+        <div className="grid gap-20">
+          <div className="grid grid-cols-12 gap-y-8 lg:gap-4">
             <div className="col-span-12 lg:col-span-5">
               <div className="grid gap-10">
                 <img
@@ -84,7 +84,6 @@ const Footer = () => {
                         className="w-[32px] h-[32px] object-contain"
                         alt={icon.alt}
                       />}
-                      {/* {icon.icon} */}
                     </a>
                   ))}
                 </div>
@@ -113,30 +112,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* <div className="col-span-12 sm:col-span-4 lg:col-span-2">
-              <div>
-                <div className="grid gap-4">
-                  <h6 className="font-poppins font-semibold text-[20px] text-white leading-[30px]">
-                    Contact
-                  </h6>
-                  <div>
-                    <ul className="grid gap-3">
-                      {contactData.map((contact, index) => (
-                        <li key={index}>
-                          <a
-                            href={contact.href}
-                            className="font-poppins md:text-base text-lightBlue capitalize"
-                          >
-                            {contact.link}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-
             <div className="col-span-12 lg:col-span-4">
               <h6 className="font-poppins font-semibold text-[20px] text-white leading-[30px]">
                 Newsletter
@@ -153,7 +128,7 @@ const Footer = () => {
                   </div>
                   <input
                     type="email"
-                    className="text-[20px] text-white leading-[30px] bg-darkBlue focus:outline-none w-full"
+                    className="text-[16px] xs:text-[20px] text-white leading-[30px] bg-darkBlue focus:outline-none w-full"
                     name="subscriptionEmail"
                     value={newsletterInput}
                     onChange={(e) => setNewsletterInput(e.target.value)}

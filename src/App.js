@@ -33,7 +33,7 @@ function App() {
             pageExit: {
               opacity: 0,
               x: -1000,
-              transition:{duration:0.5}
+              transition: { duration: 0.5 },
             },
           }}
         >
@@ -42,9 +42,12 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services data={ServicesData}/>} />
+            <Route
+              path="/services"
+              element={<Services data={ServicesData} />}
+            />
           </Routes>
-      <Footer />
+          <Footer />
         </motion.div>
       </AnimatePresence>
     </>
