@@ -110,28 +110,28 @@ function OurWork() {
           className="flex items-center mt-10 md:mt-20 justify-between px-8 text-darkBlue"
         >
           <div className="mt-4 w-full flex flex-col justify-center items-center">
-            <h1 className="mr-4 text-4xl md:text-5xl xl:text-6xl">
+            <h1 className="mr-4 text-2xl md:text-5xl xl:text-6xl text-center">
               {successfulProjects}+
             </h1>
-            <p className="">Successful Projects</p>
+            <p className="text-sm text-center">Successful Projects</p>
           </div>
 
-          <div className="w-full mb-8 md:mb-4  bg-darkBlue h-0.5 mr-2"></div>
+          <div className="w-full mb-4  bg-darkBlue h-0.5 mr-2"></div>
 
           <div className="mt-4 w-full flex flex-col justify-center items-center">
-            <h1 className="mr-4 text-4xl md:text-5xl xl:text-6xl">
+            <h1 className="mr-4 text-2xl md:text-5xl xl:text-6xl text-center">
               {satisfiedClients}%
             </h1>
-            <p className="">Satisfied Clients</p>
+            <p className="text-sm text-center">Satisfied Clients</p>
           </div>
 
-          <div className="w-full mb-8 md:mb-4  bg-darkBlue h-0.5"></div>
+          <div className="w-full mb-4  bg-darkBlue h-0.5 mr-2"></div>
 
           <div className="mt-4 w-full flex flex-col justify-center items-center">
-            <h1 className=" text-4xl md:text-5xl xl:text-6xl mr-4">
+            <h1 className=" text-2xl md:text-5xl xl:text-6xl text-center">
               {handledCountries}+
             </h1>
-            <p className="">Customers</p>
+            <p className="text-sm text-center">Satisfied Customers</p>
           </div>
         </motion.div>
       </div>

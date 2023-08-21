@@ -46,13 +46,13 @@ const Contact = () => {
                   <BsEnvelope className="w-8 text-blue" />{" "}
                   <span className="w-full">info@Claystone.pk</span>
                 </div>
-                <div className="flex items-center gap-3">
+                {/* <div className="flex items-center gap-3">
                   <MdOutlineLocationOn className="w-8 text-blue" />
                   <span className="w-full">
                     2nd floor, Sikandar Arcade near Meezan Bank, phase 7 Bahria
                     Town Rawalpindi, Pakistan
                   </span>
-                </div>
+                </div> */}
               </div>
             </motion.div>
             <motion.div
@@ -80,7 +80,7 @@ const Contact = () => {
               initial={{ opacity: 0, y: 100 }} // Initial animation state (starting from right)
               animate={{ opacity: 1, y: 0 }} // Animation on page load
               transition={{ duration: 0.5, delay: 0.6 }} // Animation duration
-              className="w-full flex flex-col gap-3 py-10 px-6 shadow-lg bg-white text-blue rounded-lg relative bottomBorder after:rounded-b-lg"
+              className="w-full flex flex-col gap-3 py-10 px-6 shadow-lg bg-white text-darkBlue rounded-lg relative bottomBorder after:rounded-b-lg"
             >
               <img src={leadsImg} alt="" className="w-32" />
               <h1 className="text-xl font-semibold text-darkBlue">

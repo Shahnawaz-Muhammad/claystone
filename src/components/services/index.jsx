@@ -161,7 +161,7 @@ const Services = () => {
                   <MdArrowUpward className="text-5xl" />
                 </div>
                 <div className="  h-52 w-[100%] md:w-[45%] flex justify-center items-center">
-                  <div className="w-[35%] p-5 h-[100%] rounded-full ">
+                  <div className="w-[200px]  h-[200px] rounded-full ">
                     <img
                       src={data.imgUrl}
                       className="w-full h-full  bg-contain  rounded-full"

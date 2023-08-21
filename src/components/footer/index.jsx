@@ -147,13 +147,13 @@ const Footer = () => {
                 anytime!
               </p>
               <div className="relative pt-[43px]">
-                <div className="bg-darkBlue border border-lightBlue rounded-[5px] w-[100%] pl-5 h-12 flex items-center">
+                <div className="bg-darkBlue border border-lightBlue rounded-[5px] w-full pl-5 h-12 flex items-center">
                   <div className="absolute inset-y-0 right-4 top-7 flex items-center h-20">
                     <button onClick={handleNewsletterSubmit}><img src={arrowIcon} className="w-6" /></button>
                   </div>
                   <input
                     type="email"
-                    className="text-[20px] text-white leading-[30px] bg-darkBlue focus:outline-none w-[80%]"
+                    className="text-[20px] text-white leading-[30px] bg-darkBlue focus:outline-none w-full"
                     name="subscriptionEmail"
                     value={newsletterInput}
                     onChange={(e) => setNewsletterInput(e.target.value)}
