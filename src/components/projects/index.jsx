@@ -20,13 +20,13 @@ const Projects = () => {
 
   const cardData = [
     { id: 1, title: "Vehicle Tracking System", imgUrl: vehicleTracking},
-    { id: 2, title: "e-Commerce Echo System", imgUrl: eCommerce},
+    { id: 2, title: "e-Commerce Eco System", imgUrl: eCommerce},
     { id: 3, title: "Complain Management System ", imgUrl: complainManagement },
     { id: 4, title: "Building Control Systems" , imgUrl: buildingControl},
     { id: 5, title: "Smart Cities", imgUrl: smartCities },
     { id: 6, title: "Construction Management Systems" , imgUrl: constructionManagment},
     { id: 7, title: "Ticketing Systems", imgUrl: ticketing},
-    { id: 8, title: "CRM", imgUrl: crm },
+    { id: 8, title: "CRM  Solutions", imgUrl: crm },
   ];
 
   useEffect(() => {
@@ -118,7 +118,7 @@ const Projects = () => {
             As an IT company, we pride ourselves on delivering customized
             solutions that meet our clients' unique needs. Our projects
             highlight our expertise in web & mobile development, desktop
-            application, devOps, and digital marketing.
+            application, DevOps, and digital marketing.
           </motion.p>
         </div>
 

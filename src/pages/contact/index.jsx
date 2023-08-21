@@ -43,7 +43,7 @@ const Contact = () => {
               <div className="flex flex-col gap-1">
                 <div className="flex items-center gap-3">
                   <FiPhoneCall className="w-8 text-blue" />{" "}
-                  <span className="w-full">051-8737170</span>
+                  <span className="w-full">+92-51-8737170</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <BsEnvelope className="w-8 text-blue" />{" "}
